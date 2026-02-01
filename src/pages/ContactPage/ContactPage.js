@@ -1,6 +1,8 @@
 // src/pages/ContactPage/ContactPage.js
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import SEO from '../../components/SEO/SEO';
+import Confetti from '../../components/common/Confetti';
 import './ContactPage.css';
 import emailjs from 'emailjs-com';
 
@@ -17,6 +19,7 @@ const ContactPage = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,6 +45,8 @@ const ContactPage = () => {
       setErrorMessage('');
       setFormData({ name: '', email: '', phone: '', company: '', projectType: '', budget: '', description: '' });
       setIsSubmitting(false);
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 4000);
     }, (err) => {
       console.error('Falha ao enviar email:', err);
       setErrorMessage('Falha ao enviar a mensagem. Tente novamente mais tarde.');
@@ -118,6 +123,7 @@ const ContactPage = () => {
 
   return (
     <>
+      <Confetti active={showConfetti} />
       <SEO
         title="Contato - Entre em Contato com Nossa Equipe"
         description="Entre em contato conosco para discutir seu projeto. Respondemos em até 24 horas. WhatsApp, email ou agende uma reunião."

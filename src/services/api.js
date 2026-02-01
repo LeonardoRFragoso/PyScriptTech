@@ -1,54 +1,76 @@
 // src/services/api.js
-import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://127.0.0.1:8000/api';
 
-// Cria uma instância do axios com a URL base do backend
-const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api', // URL base para o backend Django
-  headers: {
+const getHeaders = () => {
+  const token = localStorage.getItem('@pyscript:token');
+  const headers = {
     'Content-Type': 'application/json',
-  },
-});
-
-// Interceptador para lidar com solicitações antes de serem enviadas
-api.interceptors.request.use(
-  (config) => {
-    // Você pode adicionar tokens de autenticação aqui se necessário
-    // const token = localStorage.getItem('token');
-    // if (token) {
-    //   config.headers.Authorization = `Bearer ${token}`;
-    // }
-
-    return config;
-  },
-  (error) => {
-    // Lida com erros antes de a solicitação ser enviada
-    return Promise.reject(error);
+  };
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
   }
-);
+  return headers;
+};
 
-// Interceptador para lidar com respostas da API
-api.interceptors.response.use(
-  (response) => {
-    // Lida com a resposta antes de passar para o código
-    return response;
-  },
-  (error) => {
-    // Lida com erros de resposta da API
-    if (error.response) {
-      console.error('Erro na resposta da API:', error.response);
-      // Você pode tratar erros específicos com base no status do erro
-      if (error.response.status === 401) {
-        // Por exemplo, redirecionar para login se não autorizado
-        // window.location.href = '/login';
-      }
-    } else if (error.request) {
-      console.error('Erro na requisição:', error.request);
-    } else {
-      console.error('Erro desconhecido:', error.message);
+const handleResponse = async (response) => {
+  if (!response.ok) {
+    if (response.status === 401) {
+      console.error('Não autorizado - redirecionando para login');
     }
-
-    return Promise.reject(error);
+    const error = await response.json().catch(() => ({ message: 'Erro na requisição' }));
+    throw new Error(error.message || `HTTP error! status: ${response.status}`);
   }
-);
+  
+  const contentType = response.headers.get('content-type');
+  if (contentType && contentType.includes('application/json')) {
+    return response.json();
+  }
+  return response.text();
+};
+
+const api = {
+  get: async (endpoint) => {
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
+      method: 'GET',
+      headers: getHeaders(),
+    });
+    return handleResponse(response);
+  },
+
+  post: async (endpoint, data) => {
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
+      method: 'POST',
+      headers: getHeaders(),
+      body: JSON.stringify(data),
+    });
+    return handleResponse(response);
+  },
+
+  put: async (endpoint, data) => {
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
+      method: 'PUT',
+      headers: getHeaders(),
+      body: JSON.stringify(data),
+    });
+    return handleResponse(response);
+  },
+
+  patch: async (endpoint, data) => {
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
+      method: 'PATCH',
+      headers: getHeaders(),
+      body: JSON.stringify(data),
+    });
+    return handleResponse(response);
+  },
+
+  delete: async (endpoint) => {
+    const response = await fetch(`${BASE_URL}${endpoint}`, {
+      method: 'DELETE',
+      headers: getHeaders(),
+    });
+    return handleResponse(response);
+  },
+};
 
 export default api;

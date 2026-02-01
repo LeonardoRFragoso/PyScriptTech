@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaCalendar, FaClock, FaUser, FaArrowRight, FaSearch } from 'react-icons/fa';
 import SEO from '../../components/SEO/SEO';
+import ReadingProgress from '../../components/common/ReadingProgress';
+import { SkeletonCard } from '../../components/common/SkeletonLoader';
+import TiltCard from '../../components/common/TiltCard';
 import './BlogPage.css';
 
 const BlogPage = () => {
@@ -103,6 +106,7 @@ const BlogPage = () => {
 
   return (
     <div className="blogPage">
+      <ReadingProgress color="#00d4ff" />
       <SEO
         title="Blog - Artigos sobre Tecnologia e Desenvolvimento"
         description="Artigos, tutoriais e insights sobre desenvolvimento de software, tendências tecnológicas, cases de sucesso e carreira em tech."

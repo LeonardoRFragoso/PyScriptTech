@@ -1,7 +1,10 @@
 // src/pages/ProjectsPage/ProjectsPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SEO from '../../components/SEO/SEO';
+import Lightbox from '../../components/common/Lightbox';
+import TiltCard from '../../components/common/TiltCard';
 import './ProjectsPage.css'; 
 
 const projectsData = [
@@ -13,8 +16,8 @@ const projectsData = [
     category: 'enterprise',
     technologies: ['Vue.js', 'JavaScript', 'Node.js', 'Payments API', 'AI Integration'],
     results: ['Sistema em produção', 'Gestão inteligente de projetos'],
-    image: `${process.env.PUBLIC_URL}/images/proflow/proflow.png`,
-    images: [`${process.env.PUBLIC_URL}/images/proflow/proflow.png`, `${process.env.PUBLIC_URL}/images/proflow/proflow2.png`, `${process.env.PUBLIC_URL}/images/proflow/proflow3.png`],
+    image: `${process.env.PUBLIC_URL}/images/proflow/proflow2.png`,
+    images: [`${process.env.PUBLIC_URL}/images/proflow/proflow2.png`, `${process.env.PUBLIC_URL}/images/proflow/proflow3.png`, `${process.env.PUBLIC_URL}/images/proflow/proflow.png`],
     featured: true,
     liveUrl: 'https://www.proflow.pro/',
     githubUrl: 'https://github.com/LeonardoRFragoso/ProFlow'
@@ -357,24 +360,15 @@ const ProjectsPage = () => {
           ))}
         </div>
 
-        {/* Gallery Modal - Outside the map loop */}
-        {expandedVideo && (
-          <div className="videoModal" onClick={() => setExpandedVideo(null)}>
-            <div className="galleryWrapper" onClick={(e) => e.stopPropagation()}>
-              <button className="closeVideo" onClick={() => setExpandedVideo(null)}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
-              <div className="galleryImages">
-                {projectsData.find(p => p.id === expandedVideo)?.images?.map((img, idx) => (
-                  <img key={idx} src={img} alt={`Imagem ${idx + 1}`} />
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+        {/* Lightbox Gallery */}
+        <Lightbox
+          images={expandedVideo ? (projectsData.find(p => p.id === expandedVideo)?.images || []) : []}
+          currentIndex={0}
+          isOpen={!!expandedVideo}
+          onClose={() => setExpandedVideo(null)}
+          onNext={() => {}}
+          onPrev={() => {}}
+        />
       </section>
 
       {/* CTA Section */}

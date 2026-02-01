@@ -1,0 +1,215 @@
+.chartContainer {
+  position: relative;
+  width: 100%;
+}
+
+.chart {
+  width: 100%;
+  height: 100%;
+}
+
+.grid line {
+  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.dot {
+  transition: r 0.2s ease;
+}
+
+.dot:hover {
+  r: 5;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.barChartContainer {
+  width: 100%;
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 100%;
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+
+.barWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+}
+
+.bar {
+  width: 100%;
+  max-width: 60px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.5rem;
+  transition: height 0.5s ease;
+  position: relative;
+}
+
+.barValue {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.barLabel {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.donutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.donut {
+  position: relative;
+}
+
+.donutSegment {
+  transition: stroke-width 0.2s ease;
+  cursor: pointer;
+}
+
+.donutSegment:hover {
+  stroke-width: 35;
+}
+
+.donutCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.donutTotal {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+}
+
+.donutLabel {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.donutLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.legendText {
+  font-size: 0.85rem;
+  color: #a0a0a0;
+}
+
+.legendValue {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+}
+
+.statCard {
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(10, 10, 10, 0.6));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+.statHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.statIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.statTitle {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.statBody {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.statValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+}
+
+.statChange {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.statChange.increase {
+  color: #10b981;
+}
+
+.statChange.decrease {
+  color: #ff6b6b;
+}
+
+.sparkline {
+  margin-top: 1rem;
+  opacity: 0.8;
+}

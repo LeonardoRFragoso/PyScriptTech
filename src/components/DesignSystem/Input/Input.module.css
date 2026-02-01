@@ -1,0 +1,167 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.required {
+  color: #ff6b6b;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.inputWrapper.focused {
+  border-color: #00d4ff;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+.inputWrapper.hasError {
+  border-color: #ff6b6b;
+}
+
+.inputWrapper.hasError.focused {
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.inputWrapper.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.inputWrapper.small {
+  height: 36px;
+}
+
+.inputWrapper.medium {
+  height: 44px;
+}
+
+.inputWrapper.large {
+  height: 52px;
+}
+
+.input {
+  flex: 1;
+  height: 100%;
+  padding: 0 1rem;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #666;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.inputWrapper.small .input {
+  font-size: 0.875rem;
+  padding: 0 0.75rem;
+}
+
+.inputWrapper.large .input {
+  font-size: 1.1rem;
+  padding: 0 1.25rem;
+}
+
+.inputWrapper.hasIconLeft .input {
+  padding-left: 2.75rem;
+}
+
+.inputWrapper.hasIconRight .input {
+  padding-right: 2.75rem;
+}
+
+.icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.iconLeft {
+  left: 1rem;
+}
+
+.iconRight {
+  right: 1rem;
+}
+
+.inputWrapper.focused .icon {
+  color: #00d4ff;
+}
+
+.inputWrapper.hasError .icon {
+  color: #ff6b6b;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.passwordToggle:hover {
+  color: #00d4ff;
+}
+
+.helper {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+.errorText {
+  color: #ff6b6b;
+}
+
+.outlined .inputWrapper {
+  background: transparent;
+}
+
+.filled .inputWrapper {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: transparent;
+}
+
+.filled .inputWrapper.focused {
+  border-color: #00d4ff;
+}

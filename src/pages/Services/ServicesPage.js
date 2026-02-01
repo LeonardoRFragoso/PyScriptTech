@@ -1,9 +1,12 @@
 // src/pages/Services/ServicesPage.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import SEO from '../../components/SEO/SEO';
 import ComparisonSection from './ComparisonSection/ComparisonSection';
 import ServiceUrgencySection from './ServiceUrgencySection/ServiceUrgencySection';
+import TiltCard from '../../components/common/TiltCard';
+import ParticlesBackground from '../../components/common/ParticlesBackground';
 import './ServicesPage.css';
 
 // Importação das imagens

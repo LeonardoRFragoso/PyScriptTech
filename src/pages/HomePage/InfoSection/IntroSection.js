@@ -1,8 +1,10 @@
 // src/pages/HomePage/IntroSection/IntroSection.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import styles from './IntroSection.module.css';
 import logo from '../../../assets/img/logopyscript.png';
+import ParticlesBackground from '../../../components/common/ParticlesBackground';
 
 const IntroSection = () => {
   const navigate = useNavigate();
@@ -13,7 +15,13 @@ const IntroSection = () => {
 
   return (
     <section className={styles.introSection}>
-      <div className={styles.introContent}>
+      <ParticlesBackground particleCount={40} color="#00d4ff" speed={0.3} />
+      <motion.div 
+        className={styles.introContent}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         <div className={styles.badge}>
           🚀 Software House • Rio de Janeiro • +70 Projetos Entregues
         </div>
@@ -37,14 +45,19 @@ const IntroSection = () => {
             Ver Projetos
           </button>
         </div>
-      </div>
-      <div className={styles.introImage}>
+      </motion.div>
+      <motion.div 
+        className={styles.introImage}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
         <img 
           src={logo} 
           alt="PyScript.tech - Software House" 
           className={styles.logoImage} 
         />
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaRocket, FaUsers, FaLightbulb, FaHeart, FaTrophy, FaCertificate } from 'react-icons/fa';
+import { FaRocket, FaUsers, FaLightbulb, FaHeart, FaTrophy, FaCertificate, FaCode, FaGraduationCap } from 'react-icons/fa';
 import SEO from '../../components/SEO/SEO';
 import CounterStat from '../../components/DesignSystem/CounterStat';
+import Timeline from '../../components/common/Timeline';
+import FlipCard from '../../components/common/FlipCard';
+import TiltCard from '../../components/common/TiltCard';
+import ParticlesBackground from '../../components/common/ParticlesBackground';
 import './AboutPage.css';
 
 const AboutPage = () => {
@@ -61,6 +65,44 @@ const AboutPage = () => {
       icon: <FaTrophy />,
       title: 'Top Projects',
       description: '70+ Projetos de Sucesso'
+    },
+  ];
+
+  const timelineItems = [
+    {
+      date: '2019',
+      title: 'Início da Jornada',
+      description: 'Fundação da PyScript.tech com foco em soluções Python e automação.',
+      icon: <FaRocket />,
+      tags: ['Python', 'Automação']
+    },
+    {
+      date: '2020',
+      title: 'Expansão para Web',
+      description: 'Ampliação do portfólio com desenvolvimento web fullstack usando React e Django.',
+      icon: <FaCode />,
+      tags: ['React', 'Django', 'Web']
+    },
+    {
+      date: '2021',
+      title: 'Certificação AWS',
+      description: 'Obtenção da certificação AWS Solutions Architect para projetos cloud.',
+      icon: <FaGraduationCap />,
+      tags: ['AWS', 'Cloud']
+    },
+    {
+      date: '2022',
+      title: 'Marco de 50 Projetos',
+      description: 'Celebração de 50 projetos entregues com sucesso para clientes em diversos setores.',
+      icon: <FaTrophy />,
+      tags: ['Enterprise', 'E-commerce']
+    },
+    {
+      date: '2023-2024',
+      title: 'Crescimento Contínuo',
+      description: 'Mais de 70 projetos entregues, parcerias estratégicas e expansão da equipe.',
+      icon: <FaUsers />,
+      tags: ['Growth', 'Team']
     },
   ];
 
@@ -143,6 +185,16 @@ const AboutPage = () => {
             </div>
           </motion.div>
         </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section className="timelineSection">
+        <div className="sectionHeader">
+          <span className="sectionBadge">Nossa Trajetória</span>
+          <h2>Linha do Tempo</h2>
+          <p>Os principais marcos da nossa jornada</p>
+        </div>
+        <Timeline items={timelineItems} />
       </section>
 
       {/* Mission Vision Values */}

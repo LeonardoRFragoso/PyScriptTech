@@ -1,0 +1,43 @@
+.toggle {
+  position: relative;
+  width: 56px;
+  height: 32px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(124, 58, 237, 0.2));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  overflow: hidden;
+}
+
+.iconContainer {
+  position: absolute;
+  right: 8px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 1rem;
+  color: #a0a0a0;
+}
+
+.slider {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #00d4ff, #7c3aed);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+[data-theme="light"] .toggle {
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 152, 0, 0.2));
+}
+
+[data-theme="light"] .icon {
+  color: #ff9800;
+}
