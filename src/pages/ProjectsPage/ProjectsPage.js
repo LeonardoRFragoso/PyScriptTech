@@ -38,6 +38,57 @@ const projectsData = [
   },
   {
     id: 3,
+    title: 'Digital Signage',
+    subtitle: 'Sistema de Monitoramento e Display Digital',
+    description: 'Sistema de gerenciamento de displays digitais para operações portuárias. Exibição de informações operacionais, dashboards e comunicação interna em tempo real.',
+    category: 'enterprise',
+    technologies: ['Python', 'React', 'WebSockets', 'PostgreSQL'],
+    results: ['Displays em tempo real', 'Gestão centralizada'],
+    image: '/images/digital-signage/1.jpg',
+    images: ['/images/digital-signage/1.jpg', '/images/digital-signage/2.jpg', '/images/digital-signage/3.jpg', '/images/digital-signage/4.jpg', '/images/digital-signage/5.jpg', '/images/digital-signage/6.jpg', '/images/digital-signage/7.jpg', '/images/digital-signage/8.jpg', '/images/digital-signage/9.jpg'],
+    featured: true
+  },
+  {
+    id: 4,
+    title: 'MedFlow',
+    subtitle: 'Sistema de Gestão Médica e Financeira',
+    description: 'Plataforma completa para gestão de clínicas e consultórios médicos. Agendamento de consultas, prontuário eletrônico, gestão de pacientes e relatórios médicos.',
+    category: 'enterprise',
+    technologies: ['Python', 'Django', 'React', 'PostgreSQL'],
+    results: ['Gestão completa de pacientes', 'Prontuário eletrônico integrado'],
+    image: `${process.env.PUBLIC_URL}/images/medflow/medflow1.png`,
+    images: [`${process.env.PUBLIC_URL}/images/medflow/medflow1.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow2.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow3.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow4.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow5.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow6.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow7.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow8.png`],
+    featured: true
+  },
+  {
+    id: 5,
+    title: 'LogiFlow CRM',
+    subtitle: 'Sistema CRM SaaS para Transportadoras',
+    description: 'Plataforma brasileira que unifica gestão comercial, operacional e fiscal para transportadoras. CRM completo, TMS operacional, emissão de CT-e/MDF-e integrada, rastreamento GPS em tempo real, gestão de frota e múltiplas integrações com ERPs.',
+    category: 'enterprise',
+    technologies: ['Python', 'FastAPI', 'Vue.js 3', 'PostgreSQL', 'Redis', 'Docker'],
+    results: ['CRM + TMS + Fiscal integrados', 'Rastreamento GPS em tempo real', 'Emissão CT-e/MDF-e'],
+    image: '/images/LogiFlow/site-divulgacao/1.png',
+    images: ['/images/LogiFlow/site-divulgacao/1.png', '/images/LogiFlow/site-divulgacao/2.png', '/images/LogiFlow/site-divulgacao/3.png', '/images/LogiFlow/site-divulgacao/4.png', '/images/LogiFlow/site-divulgacao/5.png', '/images/LogiFlow/site-divulgacao/6.png', '/images/LogiFlow/site-divulgacao/7.png', '/images/LogiFlow/site-divulgacao/8.png', '/images/LogiFlow/site-divulgacao/9.png', '/images/LogiFlow/site-divulgacao/10.png', '/images/LogiFlow/app/1.png', '/images/LogiFlow/app-motorista/1.png', '/images/LogiFlow/portal-cliente/1.png'],
+    featured: true,
+    liveUrl: 'https://logiflow-site.onrender.com',
+    githubUrl: 'https://github.com/LeonardoRFragoso/LogiFlow'
+  },
+  {
+    id: 6,
+    title: 'TaskManager',
+    subtitle: 'Sistema de Gestão de Projetos e Tarefas',
+    description: 'Sistema completo estilo Trello para gestão de projetos e tarefas. Kanban Board com drag-and-drop, Dark Mode, Internacionalização (PT-BR/EN), Dashboard com gráficos, Equipes/Squads, Notificações em tempo real e autenticação JWT.',
+    category: 'software',
+    technologies: ['Go', 'Vue.js 3', 'PostgreSQL', 'TailwindCSS', 'Docker'],
+    results: ['Kanban com drag-and-drop', 'Dark Mode e i18n', 'Sistema de equipes e permissões'],
+    image: '/images/GO API - Task Manager/1.png',
+    images: ['/images/GO API - Task Manager/1.png', '/images/GO API - Task Manager/2.png', '/images/GO API - Task Manager/3.png', '/images/GO API - Task Manager/4.png', '/images/GO API - Task Manager/5.png', '/images/GO API - Task Manager/6.png', '/images/GO API - Task Manager/7.png', '/images/GO API - Task Manager/8.png'],
+    featured: true,
+    githubUrl: 'https://github.com/LeonardoRFragoso/Go-API-Gestao-de-Projetos-e-Tarefas'
+  },
+  {
+    id: 7,
     title: 'Plataforma APM',
     subtitle: 'Monitoramento de Performance de Aplicações',
     description: 'Sistema completo de Application Performance Monitoring. Coleta de métricas, logs e traces em tempo real. Alertas automáticos e dashboards customizáveis. Arquitetura preparada para alto volume de dados.',
@@ -50,7 +101,7 @@ const projectsData = [
     githubUrl: 'https://github.com/LeonardoRFragoso/Plataforma-de-Monitoramento-de-Sistemas-e-APIs'
   },
   {
-    id: 4,
+    id: 8,
     title: 'FinanceControl',
     subtitle: 'Gerenciador Financeiro Pessoal',
     description: 'Sistema completo de gestão financeira com modelo Freemium e app multiplataforma (Windows, Android, iOS, Web). Dashboard interativo, metas financeiras, orçamentos e IA assistente. Integração com Mercado Pago para assinaturas.',
@@ -63,21 +114,9 @@ const projectsData = [
     githubUrl: 'https://github.com/LeonardoRFragoso/gerenciador-financeiro'
   },
   {
-    id: 5,
-    title: 'MedFlow',
-    subtitle: 'Sistema de Gestão Médica',
-    description: 'Plataforma completa para gestão de clínicas e consultórios médicos. Agendamento de consultas, prontuário eletrônico, gestão de pacientes e relatórios médicos.',
-    category: 'enterprise',
-    technologies: ['Python', 'Django', 'React', 'PostgreSQL'],
-    results: ['Gestão completa de pacientes', 'Prontuário eletrônico integrado'],
-    image: `${process.env.PUBLIC_URL}/images/medflow/medflow1.png`,
-    images: [`${process.env.PUBLIC_URL}/images/medflow/medflow1.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow2.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow3.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow4.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow5.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow6.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow7.png`, `${process.env.PUBLIC_URL}/images/medflow/medflow8.png`],
-    featured: true
-  },
-  {
-    id: 6,
-    title: 'SaaS Platform',
-    subtitle: 'Plataforma de Software como Serviço',
+    id: 9,
+    title: 'BI-as-a-Service',
+    subtitle: 'Plataforma de Business Intelligence',
     description: 'Sistema SaaS multi-tenant com dashboard administrativo, gestão de assinaturas, billing automatizado e analytics avançado para monitoramento de métricas de negócio.',
     category: 'enterprise',
     technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe API'],
@@ -87,51 +126,15 @@ const projectsData = [
     featured: false
   },
   {
-    id: 7,
-    title: 'Dashboard de Multas',
-    subtitle: 'Sistema de Gestão de Infrações',
-    description: 'Dashboard analítico para gestão e acompanhamento de multas de trânsito. Visualização de dados, relatórios gerenciais e alertas automáticos de vencimento.',
-    category: 'software',
-    technologies: ['Python', 'Streamlit', 'Pandas', 'Plotly'],
-    results: ['Visualização de dados em tempo real', 'Relatórios automatizados'],
-    image: `${process.env.PUBLIC_URL}/images/dash-multas/1.jpg`,
-    images: [`${process.env.PUBLIC_URL}/images/dash-multas/1.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/2.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/3.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/4.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/5.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/6.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/7.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/8.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/9.jpg`],
-    featured: false
-  },
-  {
-    id: 8,
-    title: 'Gestão de Pátio',
-    subtitle: 'Sistema de Controle Logístico',
-    description: 'Sistema de gestão de pátio para controle de entrada e saída de veículos, monitoramento de cargas e otimização de operações logísticas.',
-    category: 'software',
-    technologies: ['Python', 'Flask', 'SQLite', 'JavaScript'],
-    results: ['Controle de veículos em tempo real', 'Otimização de operações'],
-    image: '/images/Pátio/1.jpg',
-    images: ['/images/Pátio/1.jpg', '/images/Pátio/2.jpg', '/images/Pátio/3.jpg', '/images/Pátio/4.jpg', '/images/Pátio/5.jpg', '/images/Pátio/6.jpg'],
-    featured: false
-  },
-  {
-    id: 9,
-    title: 'TVs Corporativas',
-    subtitle: 'Sistema de Display Digital',
-    description: 'Sistema de gerenciamento de displays digitais para operações portuárias. Exibição de informações operacionais, dashboards e comunicação interna em tempo real.',
-    category: 'enterprise',
-    technologies: ['Python', 'React', 'WebSockets', 'PostgreSQL'],
-    results: ['Displays em tempo real', 'Gestão centralizada'],
-    image: `${process.env.PUBLIC_URL}/images/Tvs-ICTSI/1.jpg`,
-    images: [`${process.env.PUBLIC_URL}/images/Tvs-ICTSI/1.jpg`, `${process.env.PUBLIC_URL}/images/Tvs-ICTSI/2.jpg`, `${process.env.PUBLIC_URL}/images/Tvs-ICTSI/3.jpg`, `${process.env.PUBLIC_URL}/images/Tvs-ICTSI/4.jpg`, `${process.env.PUBLIC_URL}/images/Tvs-ICTSI/5.jpg`, `${process.env.PUBLIC_URL}/images/Tvs-ICTSI/6.jpg`, `${process.env.PUBLIC_URL}/images/Tvs-ICTSI/7.jpg`, `${process.env.PUBLIC_URL}/images/Tvs-ICTSI/8.jpg`, `${process.env.PUBLIC_URL}/images/Tvs-ICTSI/9.jpg`],
-    featured: true
-  },
-  {
     id: 10,
-    title: 'GR - Gestão de Recursos',
-    subtitle: 'Sistema de Gestão Empresarial',
-    description: 'Sistema completo de gestão de recursos empresariais. Controle de inventário, gestão de equipes, relatórios gerenciais e indicadores de desempenho.',
-    category: 'enterprise',
-    technologies: ['Python', 'Django', 'React', 'PostgreSQL'],
-    results: ['Gestão integrada de recursos', 'KPIs em tempo real'],
-    image: '/images/GR/1.jpg',
-    images: ['/images/GR/1.jpg', '/images/GR/2.jpg', '/images/GR/3.jpg', '/images/GR/4.jpg', '/images/GR/5.jpg', '/images/GR/6.jpg', '/images/GR/7.jpg', '/images/GR/8.jpg', '/images/GR/9.jpg', '/images/GR/10.jpg', '/images/GR/11.jpg', '/images/GR/12.jpg'],
+    title: 'GNLink',
+    subtitle: 'Site Institucional - Setor de Energia',
+    description: 'Site institucional moderno e responsivo para empresa do setor de energia. Suporte a internacionalização (PT/EN), animações fluidas, menu responsivo com dropdown e design otimizado para conversão.',
+    category: 'web',
+    technologies: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    results: ['Internacionalização PT/EN', 'Design responsivo e animado'],
+    image: '/images/GNLink/1.png',
+    images: ['/images/GNLink/1.png', '/images/GNLink/2.png', '/images/GNLink/3.png', '/images/GNLink/4.png', '/images/GNLink/5.png', '/images/GNLink/6.png', '/images/GNLink/7.png', '/images/GNLink/8.png'],
     featured: false
   },
   {
@@ -148,6 +151,18 @@ const projectsData = [
   },
   {
     id: 12,
+    title: 'Gestão de Pátio',
+    subtitle: 'Sistema de Controle Logístico',
+    description: 'Sistema de gestão de pátio para controle de entrada e saída de veículos, monitoramento de cargas e otimização de operações logísticas.',
+    category: 'software',
+    technologies: ['Python', 'Flask', 'SQLite', 'JavaScript'],
+    results: ['Controle de veículos em tempo real', 'Otimização de operações'],
+    image: '/images/Pátio/1.jpg',
+    images: ['/images/Pátio/1.jpg', '/images/Pátio/2.jpg', '/images/Pátio/3.jpg', '/images/Pátio/4.jpg', '/images/Pátio/5.jpg', '/images/Pátio/6.jpg'],
+    featured: false
+  },
+  {
+    id: 13,
     title: 'Não Conformidade',
     subtitle: 'Sistema de Gestão de Qualidade',
     description: 'Sistema para registro e acompanhamento de não conformidades. Workflow de aprovação, ações corretivas, relatórios de qualidade e indicadores ISO.',
@@ -159,15 +174,27 @@ const projectsData = [
     featured: false
   },
   {
-    id: 13,
-    title: 'GNLink',
-    subtitle: 'Site Institucional - Setor de Energia',
-    description: 'Site institucional moderno e responsivo para empresa do setor de energia. Suporte a internacionalização (PT/EN), animações fluidas, menu responsivo com dropdown e design otimizado para conversão.',
-    category: 'web',
-    technologies: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    results: ['Internacionalização PT/EN', 'Design responsivo e animado'],
-    image: '/images/GNLink/1.png',
-    images: ['/images/GNLink/1.png', '/images/GNLink/2.png', '/images/GNLink/3.png', '/images/GNLink/4.png', '/images/GNLink/5.png', '/images/GNLink/6.png', '/images/GNLink/7.png', '/images/GNLink/8.png'],
+    id: 14,
+    title: 'GR - Gestão de Recursos',
+    subtitle: 'Sistema de Gestão Empresarial',
+    description: 'Sistema completo de gestão de recursos empresariais. Controle de inventário, gestão de equipes, relatórios gerenciais e indicadores de desempenho.',
+    category: 'enterprise',
+    technologies: ['Python', 'Django', 'React', 'PostgreSQL'],
+    results: ['Gestão integrada de recursos', 'KPIs em tempo real'],
+    image: '/images/GR/1.jpg',
+    images: ['/images/GR/1.jpg', '/images/GR/2.jpg', '/images/GR/3.jpg', '/images/GR/4.jpg', '/images/GR/5.jpg', '/images/GR/6.jpg', '/images/GR/7.jpg', '/images/GR/8.jpg', '/images/GR/9.jpg', '/images/GR/10.jpg', '/images/GR/11.jpg', '/images/GR/12.jpg'],
+    featured: false
+  },
+  {
+    id: 15,
+    title: 'Dashboard de Multas',
+    subtitle: 'Sistema de Gestão de Infrações',
+    description: 'Dashboard analítico para gestão e acompanhamento de multas de trânsito. Visualização de dados, relatórios gerenciais e alertas automáticos de vencimento.',
+    category: 'software',
+    technologies: ['Python', 'Streamlit', 'Pandas', 'Plotly'],
+    results: ['Visualização de dados em tempo real', 'Relatórios automatizados'],
+    image: `${process.env.PUBLIC_URL}/images/dash-multas/1.jpg`,
+    images: [`${process.env.PUBLIC_URL}/images/dash-multas/1.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/2.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/3.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/4.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/5.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/6.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/7.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/8.jpg`, `${process.env.PUBLIC_URL}/images/dash-multas/9.jpg`],
     featured: false
   }
 ];

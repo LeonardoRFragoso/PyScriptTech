@@ -37,7 +37,7 @@ const FeaturedProjects = () => {
       category: 'Enterprise',
       technologies: ['Python', 'React', 'WebSockets'],
       results: ['Displays em tempo real', 'Gestão centralizada'],
-      image: `${process.env.PUBLIC_URL}/images/Tvs-ICTSI/1.jpg`,
+      image: '/images/digital-signage/1.jpg',
     },
   ];
 
