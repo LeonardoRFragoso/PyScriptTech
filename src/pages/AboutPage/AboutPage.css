@@ -382,6 +382,62 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Legal Information Section */
+.legalInfoSection {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.legalInfoCard {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem;
+  background: rgba(26, 26, 36, 0.5);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.legalInfoGrid {
+  display: grid;
+  gap: 2rem;
+}
+
+.legalInfoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.legalInfoItem:hover {
+  border-color: rgba(0, 212, 255, 0.3);
+  background: rgba(0, 212, 255, 0.05);
+  transform: translateX(4px);
+}
+
+.legalLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #00d4ff;
+  opacity: 0.9;
+}
+
+.legalValue {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+}
+
 /* CTA Section */
 .aboutCTA {
   padding: 6rem 2rem;

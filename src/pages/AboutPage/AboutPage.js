@@ -324,6 +324,45 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* Company Legal Information */}
+      <section className="legalInfoSection">
+        <div className="sectionHeader">
+          <span className="sectionBadge">Informações Legais</span>
+          <h2>Dados da Empresa</h2>
+          <p>Informações oficiais e registro legal</p>
+        </div>
+        <motion.div
+          className="legalInfoCard"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="legalInfoGrid">
+            <div className="legalInfoItem">
+              <span className="legalLabel">Razão Social</span>
+              <span className="legalValue">LEONARDO RODRIGUES FRAGOSO DESENVOLVIMENTO DE SOFTWARE LTDA</span>
+            </div>
+            <div className="legalInfoItem">
+              <span className="legalLabel">Nome Fantasia</span>
+              <span className="legalValue">LEONARDO FRAGOSO DEVELOPER</span>
+            </div>
+            <div className="legalInfoItem">
+              <span className="legalLabel">CNPJ</span>
+              <span className="legalValue">65.032.889/0001-34</span>
+            </div>
+            <div className="legalInfoItem">
+              <span className="legalLabel">Tipo Jurídico</span>
+              <span className="legalValue">LIMITADA UNIPESSOAL (M.E.)</span>
+            </div>
+            <div className="legalInfoItem">
+              <span className="legalLabel">NIRE</span>
+              <span className="legalValue">35269109179</span>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* CTA Section */}
       <section className="aboutCTA">
         <motion.div
