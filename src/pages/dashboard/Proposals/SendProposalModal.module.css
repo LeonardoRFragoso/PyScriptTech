@@ -1,0 +1,273 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.modal {
+  background: #0f0f1e;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.header h2 {
+  margin: 0;
+  color: #f8fafc;
+  font-size: 1.25rem;
+}
+
+.header p {
+  margin: 4px 0 0;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.closeButton {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: color 0.2s;
+}
+
+.closeButton:hover {
+  color: #f8fafc;
+}
+
+.content {
+  padding: 24px;
+  overflow-y: auto;
+  color: #e2e8f0;
+}
+
+.generateSection p {
+  color: #94a3b8;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+.generateButton,
+.emailButton,
+.whatsappButton,
+.textButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.generateButton:hover:not(:disabled),
+.emailButton:hover:not(:disabled),
+.whatsappButton:hover:not(:disabled),
+.textButton:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.generateButton:disabled,
+.emailButton:disabled,
+.whatsappButton:disabled,
+.textButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.generateButton {
+  width: 100%;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+  color: #0f0f1e;
+}
+
+.linkSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.linkBox label {
+  display: block;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.linkRow {
+  display: flex;
+  gap: 8px;
+}
+
+.linkRow input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  color: #f8fafc;
+  font-size: 0.9rem;
+}
+
+.linkRow button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  background: rgba(0, 212, 255, 0.08);
+  color: #00d4ff;
+  cursor: pointer;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.emailButton {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.whatsappButton {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.textButton {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+
+.preview {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.preview h3 {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  color: #00d4ff;
+}
+
+.preview p {
+  margin: 0 0 8px;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.preview pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  border-radius: 6px;
+  margin: 0;
+}
+
+.infoBox,
+.errorBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.infoBox {
+  background: rgba(16, 185, 129, 0.1);
+  color: #34d399;
+}
+
+.errorBox {
+  background: rgba(239, 68, 68, 0.1);
+  color: #fca5a5;
+}
+
+.successIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.errorText {
+  margin-top: 12px;
+  color: #fca5a5;
+  font-size: 0.9rem;
+}
+
+.footer {
+  padding: 16px 24px;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.closeFooterButton {
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.closeFooterButton:hover {
+  color: #f8fafc;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+  }
+
+  .linkRow {
+    flex-direction: column;
+  }
+}
