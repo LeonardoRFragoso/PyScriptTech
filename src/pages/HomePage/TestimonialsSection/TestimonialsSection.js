@@ -12,7 +12,7 @@ const TestimonialsSection = () => {
       <div className={styles.testimonialsContainer}>
         {/* Testimonial 1 */}
         <div className={styles.testimonialItem}>
-          <img src={avatar1} alt="Ricardo Mendes - CEO TechStart" className={styles.testimonialAvatar} />
+          <img src={avatar1} alt="Ricardo Mendes - CEO TechStart" className={styles.testimonialAvatar} loading="lazy" decoding="async" />
           <blockquote>
             "A PyScript.tech entregou em 3 semanas o que outras empresas levariam meses. 
             Nossa plataforma de e-commerce aumentou as conversões em 40% no primeiro mês."
@@ -21,7 +21,7 @@ const TestimonialsSection = () => {
         </div>
         {/* Testimonial 2 */}
         <div className={styles.testimonialItem}>
-          <img src={avatar2} alt="Marina Santos - Diretora de Operações" className={styles.testimonialAvatar} />
+          <img src={avatar2} alt="Marina Santos - Diretora de Operações" className={styles.testimonialAvatar} loading="lazy" decoding="async" />
           <blockquote>
             "O bot de atendimento que desenvolveram processa mais de 500 solicitações 
             por dia sem intervenção humana. Reduzimos custos operacionais em 65%."
@@ -30,7 +30,7 @@ const TestimonialsSection = () => {
         </div>
         {/* Testimonial 3 */}
         <div className={styles.testimonialItem}>
-          <img src={avatar3} alt="Carlos Eduardo - Fundador" className={styles.testimonialAvatar} />
+          <img src={avatar3} alt="Carlos Eduardo - Fundador" className={styles.testimonialAvatar} loading="lazy" decoding="async" />
           <blockquote>
             "Profissionalismo e expertise técnica de altíssimo nível. O sistema que 
             criaram integrou todos os nossos processos e eliminou retrabalho."
@@ -39,7 +39,7 @@ const TestimonialsSection = () => {
         </div>
         {/* Testimonial 4 */}
         <div className={styles.testimonialItem}>
-          <img src="/images/Leo-Perfil.png" alt="Leonardo Fragoso - CTO" className={styles.testimonialAvatar} />
+          <img src="/images/Leo-Perfil.png" alt="Leonardo Fragoso - CTO" className={styles.testimonialAvatar} loading="lazy" decoding="async" />
           <blockquote>
             "A automação que implementaram reduziu nosso tempo de processamento de 
             pedidos de 2 dias para 4 horas. ROI de 300% em apenas 6 meses."

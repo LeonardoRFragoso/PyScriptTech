@@ -10,34 +10,38 @@ const FeaturedProjects = () => {
   const featuredProjects = [
     {
       id: 1,
+      title: 'Oráculo IA',
+      description: 'Consultor estratégico com IA e pipeline OpenRAG completo. Ingestiona documentos, executa pipeline com OpenSearch + Langflow + Docling e responde em linguagem natural com fontes verificáveis.',
+      category: 'AI / Enterprise',
+      technologies: ['FastAPI', 'OpenSearch', 'Langflow', 'Docling', 'Docker'],
+      results: ['Pipeline OpenRAG com indexação semântica', 'Containerização completa', 'Respostas com citação de fontes'],
+      image: '/images/oraculo/oraculo1.png',
+      caseUrl: '/cases/oraculo-ia',
+      githubUrl: 'https://github.com/LeonardoRFragoso/Oraculo'
+    },
+    {
+      id: 2,
       title: 'ProFlow',
-      description: 'Plataforma completa para freelancers com gestão de projetos, IA integrada e dashboard analítico.',
+      description: 'Plataforma completa para freelancers brasileiros com 4 pilares: IA consultiva (GPT-4), pagamento em custódia anti-calote, reputação com KYC e onboarding gamificado.',
       category: 'SaaS Platform',
-      technologies: ['Vue.js', 'Node.js', 'AI Integration'],
-      results: ['Sistema em produção', 'Gestão inteligente de projetos'],
+      technologies: ['Django', 'Vue.js 3', 'PostgreSQL', 'OpenAI GPT-4', 'Mercado Pago'],
+      results: ['SaaS próprio em produção', 'Chat em tempo real e carteira virtual com PIX', 'Assinaturas recorrentes e escrow'],
       image: `${process.env.PUBLIC_URL}/images/proflow/proflow.png`,
+      caseUrl: '/cases/proflow',
       liveUrl: 'https://www.proflow.pro/',
       githubUrl: 'https://github.com/LeonardoRFragoso/ProFlow'
     },
     {
-      id: 2,
-      title: 'Base Corporativa',
-      description: 'E-commerce completo para venda de uniformes com sistema de carrinho e painel administrativo.',
-      category: 'E-commerce',
-      technologies: ['React', 'Django', 'PostgreSQL'],
-      results: ['Loja online em produção', 'Interface otimizada'],
-      image: `${process.env.PUBLIC_URL}/images/base/base1.png`,
-      liveUrl: 'https://basecorporativa.store/',
-      githubUrl: 'https://github.com/LeonardoRFragoso/base-corporativa'
-    },
-    {
       id: 3,
-      title: 'TVs Corporativas',
-      description: 'Sistema de displays digitais para operações portuárias com exibição em tempo real.',
-      category: 'Enterprise',
-      technologies: ['Python', 'React', 'WebSockets'],
-      results: ['Displays em tempo real', 'Gestão centralizada'],
-      image: '/images/digital-signage/1.jpg',
+      title: 'LogiFlow CRM',
+      description: 'CRM SaaS completo para transportadoras unificando gestão comercial, operacional e fiscal com 4 apps integrados, rastreamento GPS e emissão de CT-e/MDF-e.',
+      category: 'Enterprise SaaS',
+      technologies: ['FastAPI', 'Vue.js 3', 'PostgreSQL', 'Redis', 'GPS'],
+      results: ['4 aplicações integradas', 'Integrações com ERPs e WhatsApp', 'Emissão CT-e/MDF-e automatizada'],
+      image: '/images/LogiFlow/site-divulgacao/1.png',
+      caseUrl: '/cases/logiflow',
+      liveUrl: 'https://logi-flow-wuhp.vercel.app',
+      githubUrl: 'https://github.com/LeonardoRFragoso/LogiFlow'
     },
   ];
 
@@ -67,7 +71,7 @@ const FeaturedProjects = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="projectImage">
-                <img src={project.image} alt={project.title} />
+                <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
                 <span className="categoryLabel">{project.category}</span>
                 <div className="projectOverlay">
                   {project.liveUrl && (
@@ -110,6 +114,15 @@ const FeaturedProjects = () => {
                     </div>
                   ))}
                 </div>
+                {project.caseUrl && (
+                  <button
+                    className="caseButton"
+                    onClick={() => navigate(project.caseUrl)}
+                  >
+                    Ver Case Completo
+                    <FaArrowRight />
+                  </button>
+                )}
               </div>
             </motion.div>
           ))}
@@ -122,11 +135,11 @@ const FeaturedProjects = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <button 
+          <button
             className="ctaButton"
             onClick={() => navigate('/projects')}
           >
-            Ver Todos os Projetos
+            Ver Todos os Cases
             <FaArrowRight />
           </button>
         </motion.div>

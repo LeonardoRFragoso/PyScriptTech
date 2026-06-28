@@ -10,7 +10,7 @@ const IntroSection = () => {
   const navigate = useNavigate();
 
   const handleCTAClick = () => {
-    navigate('/contact');
+    navigate('/diagnostico-gratuito');
   };
 
   return (
@@ -23,26 +23,26 @@ const IntroSection = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className={styles.badge}>
-          🚀 Software House • Rio de Janeiro • +70 Projetos Entregues
+          🚀 Automação • Inteligência Artificial • Sistemas Corporativos
         </div>
         <h1>
-          Transforme Sua Ideia em um
-          <span>Sistema que Gera Resultados Reais</span>
+          Automação, IA e Sistemas Corporativos
+          <span>para Empresas</span>
         </h1>
         <p>
-          Desenvolvemos software sob medida que aumenta sua receita, reduz custos operacionais 
-          e automatiza processos. De e-commerce de alta conversão a sistemas enterprise escaláveis 
-          — <strong>entregamos em até 30 dias com garantia de satisfação</strong>.
+          Transformamos processos manuais em operações inteligentes através de 
+          <strong>software personalizado, integrações e inteligência artificial</strong>. 
+          Reduza custos, elimine retrabalho e escale seu negócio com menos esforço operacional.
         </p>
         <div className={styles.ctaWrapper}>
           <button className={styles.ctaButton} onClick={handleCTAClick}>
-            Fale com um Especialista
+            Solicitar Diagnóstico Gratuito
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
           </button>
           <button className={styles.ctaSecondary} onClick={() => navigate('/projects')}>
-            Ver Projetos
+            Ver Cases
           </button>
         </div>
       </motion.div>
@@ -52,10 +52,14 @@ const IntroSection = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
       >
-        <img 
-          src={logo} 
-          alt="PyScript.tech - Software House" 
-          className={styles.logoImage} 
+        <img
+          src={logo}
+          alt="PyScript.tech - Automação, IA e Sistemas Corporativos"
+          className={styles.logoImage}
+          width="400"
+          height="400"
+          loading="eager"
+          decoding="async"
         />
       </motion.div>
     </section>

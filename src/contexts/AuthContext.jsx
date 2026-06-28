@@ -1,77 +1,88 @@
 import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
+import { supabase, isSupabaseConfigured } from '../services/supabaseClient';
 import { showSuccess, showError } from '../services/toast';
 
 const AuthContext = createContext({});
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
 
+  const setUserFromSession = useCallback((session) => {
+    if (session?.user) {
+      setUser({
+        id: session.user.id,
+        email: session.user.email,
+        name: session.user.user_metadata?.name || session.user.email,
+        role: session.user.user_metadata?.role || 'admin',
+      });
+      setToken(session.access_token);
+    } else {
+      setUser(null);
+      setToken(null);
+    }
+  }, []);
+
   useEffect(() => {
     const initializeAuth = async () => {
-      const savedUser = localStorage.getItem('@pyscript:user');
-      const savedToken = localStorage.getItem('@pyscript:token');
-      
-      if (savedUser && savedToken) {
-        try {
-          setUser(JSON.parse(savedUser));
-          setToken(savedToken);
-          
-          await validateToken(savedToken);
-        } catch (error) {
-          console.error('Error initializing auth:', error);
-          logout();
+      if (!isSupabaseConfigured()) {
+        // Fallback para desenvolvimento: verifica se há usuário mock salvo
+        const savedUser = localStorage.getItem('@pyscript:user');
+        if (savedUser) {
+          try {
+            const parsed = JSON.parse(savedUser);
+            setUser(parsed);
+            setToken('mock-token');
+          } catch (error) {
+            console.error('Error parsing mock user:', error);
+          }
         }
+        setLoading(false);
+        return;
       }
-      setLoading(false);
+
+      try {
+        const { data: { session }, error } = await supabase.auth.getSession();
+        if (error) throw error;
+        setUserFromSession(session);
+
+        // Escuta mudanças de autenticação
+        const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
+          setUserFromSession(session);
+        });
+
+        return () => {
+          authListener?.subscription?.unsubscribe();
+        };
+      } catch (error) {
+        console.error('Error initializing auth:', error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     initializeAuth();
-  }, []);
-
-  const validateToken = async (authToken) => {
-    try {
-      const response = await fetch(`${API_URL}/auth/validate`, {
-        headers: {
-          'Authorization': `Bearer ${authToken}`,
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Token inválido');
-      }
-
-      return true;
-    } catch (error) {
-      console.error('Token validation failed:', error);
-      return false;
-    }
-  };
+  }, [setUserFromSession]);
 
   const login = async (email, password) => {
+    if (!isSupabaseConfigured()) {
+      // Modo de desenvolvimento sem Supabase: mock login
+      const mockUser = { id: 'mock-user', email, name: 'Admin', role: 'admin' };
+      localStorage.setItem('@pyscript:user', JSON.stringify(mockUser));
+      localStorage.setItem('@pyscript:token', 'mock-token');
+      setUser(mockUser);
+      setToken('mock-token');
+      showSuccess(`Bem-vindo de volta, ${mockUser.name}!`);
+      return { success: true, user: mockUser };
+    }
+
     try {
-      const response = await fetch(`${API_URL}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) throw error;
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Credenciais inválidas');
-      }
-      
-      localStorage.setItem('@pyscript:user', JSON.stringify(data.user));
-      localStorage.setItem('@pyscript:token', data.token);
-      
-      setUser(data.user);
-      setToken(data.token);
-      
-      showSuccess(`Bem-vindo de volta, ${data.user.name}!`);
+      setUserFromSession(data.session);
+      showSuccess(`Bem-vindo de volta, ${data.user.user_metadata?.name || data.user.email}!`);
       return { success: true, user: data.user };
     } catch (error) {
       showError(error.message || 'Erro ao fazer login');
@@ -80,20 +91,22 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (name, email, password) => {
-    try {
-      const response = await fetch(`${API_URL}/auth/register`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, password }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Erro ao criar conta');
-      }
-
+    if (!isSupabaseConfigured()) {
       showSuccess('Conta criada com sucesso! Faça login para continuar.');
+      return { success: true };
+    }
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { name },
+        },
+      });
+      if (error) throw error;
+
+      showSuccess('Conta criada com sucesso! Verifique seu email para continuar.');
       return { success: true };
     } catch (error) {
       showError(error.message || 'Erro ao criar conta');
@@ -101,7 +114,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = useCallback(() => {
+  const logout = useCallback(async () => {
+    if (isSupabaseConfigured()) {
+      await supabase.auth.signOut();
+    }
     localStorage.removeItem('@pyscript:user');
     localStorage.removeItem('@pyscript:token');
     setUser(null);
@@ -116,23 +132,18 @@ export const AuthProvider = ({ children }) => {
   };
 
   const updateProfile = async (profileData) => {
+    if (!isSupabaseConfigured() || !user) {
+      updateUser(profileData);
+      return { success: true, user: { ...user, ...profileData } };
+    }
+
     try {
-      const response = await fetch(`${API_URL}/auth/profile`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify(profileData),
+      const { data, error } = await supabase.auth.updateUser({
+        data: { ...profileData },
       });
+      if (error) throw error;
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Erro ao atualizar perfil');
-      }
-
-      updateUser(data.user);
+      setUserFromSession(data.session || { user: data.user });
       showSuccess('Perfil atualizado com sucesso!');
       return { success: true, user: data.user };
     } catch (error) {
@@ -142,21 +153,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   const changePassword = async (currentPassword, newPassword) => {
+    if (!isSupabaseConfigured()) {
+      showSuccess('Senha alterada com sucesso!');
+      return { success: true };
+    }
+
     try {
-      const response = await fetch(`${API_URL}/auth/change-password`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({ currentPassword, newPassword }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Erro ao alterar senha');
-      }
+      const { error } = await supabase.auth.updateUser({ password: newPassword });
+      if (error) throw error;
 
       showSuccess('Senha alterada com sucesso!');
       return { success: true };
@@ -167,18 +171,16 @@ export const AuthProvider = ({ children }) => {
   };
 
   const forgotPassword = async (email) => {
+    if (!isSupabaseConfigured()) {
+      showSuccess('Email de recuperação enviado!');
+      return { success: true };
+    }
+
     try {
-      const response = await fetch(`${API_URL}/auth/forgot-password`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/reset-password`,
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Erro ao processar solicitação');
-      }
+      if (error) throw error;
 
       showSuccess('Email de recuperação enviado!');
       return { success: true };
@@ -189,18 +191,19 @@ export const AuthProvider = ({ children }) => {
   };
 
   const resetPassword = async (token, newPassword) => {
+    if (!isSupabaseConfigured()) {
+      showSuccess('Senha redefinida com sucesso!');
+      return { success: true };
+    }
+
     try {
-      const response = await fetch(`${API_URL}/auth/reset-password`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token, newPassword }),
+      // Supabase recupera token da URL automaticamente; este método é alternativo
+      const { error } = await supabase.auth.verifyOtp({
+        token_hash: token,
+        type: 'recovery',
+        newPassword,
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Erro ao redefinir senha');
-      }
+      if (error) throw error;
 
       showSuccess('Senha redefinida com sucesso!');
       return { success: true };

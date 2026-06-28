@@ -7,9 +7,15 @@
 
 # testing
 /coverage
+.coverage
 
 # production
 /build
+
+# supabase
+/supabase/.temp
+/supabase/.branches
+/deno.lock
 
 # misc
 .DS_Store

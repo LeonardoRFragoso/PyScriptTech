@@ -109,9 +109,10 @@ const AboutPage = () => {
   return (
     <div className="aboutPage">
       <SEO
-        title="Sobre Nós - Conheça a PyScript.tech"
-        description="Conheça a história, missão e valores da PyScript.tech. Uma software house especializada em criar soluções digitais que transformam negócios."
+        title="Sobre Nós - PyScript.tech | Automação, IA e Sistemas Corporativos"
+        description="Conheça a PyScript.tech: Software House especializada em Automação, Inteligência Artificial e Sistemas Corporativos. +70 projetos entregues, 98% de satisfação."
         url="https://pyscript.tech/about"
+        keywords="sobre pyscript.tech, software house automação, empresa de IA, desenvolvimento python, sistemas corporativos"
       />
 
       {/* Hero Section */}
@@ -124,12 +125,13 @@ const AboutPage = () => {
         >
           <span className="heroBadge">Sobre Nós</span>
           <h1>
-            Transformando ideias em
-            <span>soluções digitais de impacto</span>
+            Resolvemos Problemas de Negócio
+            <span>com Automação, IA e Sistemas Corporativos</span>
           </h1>
           <p>
-            Somos uma software house especializada em criar soluções digitais sob medida. 
-            Nossa missão é transformar desafios complexos em sistemas simples, eficientes e escaláveis.
+            Somos uma Software House especializada em transformar processos manuais em operações 
+            inteligentes. Desenvolvemos soluções sob medida em IA, automação, sistemas corporativos 
+            e integrações para empresas que querem crescer com menos esforço operacional.
           </p>
         </motion.div>
       </section>

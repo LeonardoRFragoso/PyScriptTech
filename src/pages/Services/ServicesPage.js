@@ -5,78 +5,104 @@ import { motion } from 'framer-motion';
 import SEO from '../../components/SEO/SEO';
 import ComparisonSection from './ComparisonSection/ComparisonSection';
 import ServiceUrgencySection from './ServiceUrgencySection/ServiceUrgencySection';
+import ExecutionSection from '../HomePage/ExecutionSection/ExecutionSection';
 import TiltCard from '../../components/common/TiltCard';
 import ParticlesBackground from '../../components/common/ParticlesBackground';
 import './ServicesPage.css';
 
 // Importação das imagens
-import serviceImage1 from '../../assets/img/Softdev.png';
-import serviceImage2 from '../../assets/img/webdev.png';
-import serviceImage3 from '../../assets/img/botdev.png';
+import serviceImage1 from '../../assets/img/botdev.png';
+import serviceImage2 from '../../assets/img/Softdev.png';
+import serviceImage3 from '../../assets/img/webdev.png';
 
 const servicesData = [
   {
     number: "01",
-    title: "Software Sob Medida",
-    subtitle: "Sistemas que trabalham do seu jeito",
-    description: "Desenvolvemos soluções personalizadas que se integram perfeitamente ao seu fluxo de trabalho. Da análise de requisitos à implementação, criamos sistemas robustos que automatizam processos, reduzem erros e aumentam a produtividade da sua equipe.",
+    title: "Inteligência Artificial",
+    subtitle: "IA que resolve problemas reais",
+    description: "Implementamos assistentes corporativos, RAG, chatbots internos e análise de documentos com IA. Transforme dados e conhecimento em respostas rápidas, precisas e disponíveis 24 horas por dia.",
     features: [
-      "Análise completa de requisitos",
-      "Arquitetura escalável e segura",
-      "Integração com APIs e sistemas legados",
-      "Banco de dados otimizado",
-      "Painel administrativo intuitivo",
-      "Suporte e manutenção contínuos"
+      "Assistentes corporativos com RAG",
+      "Chatbots internos especializados",
+      "Análise de documentos e contratos",
+      "Integração com LLMs e bases privadas",
+      "Dashboards preditivos",
+      "Automação de decisões com IA"
     ],
     benefits: [
-      { icon: "⚡", text: "Redução de 60% no tempo de processos" },
-      { icon: "🛡️", text: "Segurança e backup automatizado" },
-      { icon: "📈", text: "Escalável conforme seu crescimento" }
+      { icon: "🧠", text: "Respostas em linguagem natural com fontes" },
+      { icon: "⚡", text: "Redução de 80% no tempo de consulta" },
+      { icon: "📈", text: "Decisões baseadas em dados reais" }
     ],
-    technologies: ["Python", "Django", "FastAPI", "Node.js", "PostgreSQL", "Docker", "Java", "Spring Boot"],
+    technologies: ["Python", "FastAPI", "OpenAI", "Langchain", "OpenSearch", "React", "Docker"],
     image: serviceImage1,
+    link: "/inteligencia-artificial-empresas"
   },
   {
     number: "02",
-    title: "Aplicações Web",
-    subtitle: "Presença digital que converte",
-    description: "Sites e aplicações web de alta performance construídos com as tecnologias mais modernas do mercado. Design responsivo, SEO otimizado e foco total em experiência do usuário para maximizar suas conversões e fortalecer sua marca.",
+    title: "Automação de Processos",
+    subtitle: "Elimine tarefas repetitivas",
+    description: "Automatizamos fluxos operacionais, integrações e tarefas manuais com RPA, APIs e filas. Reduza custos, elimine erros humanos e libere sua equipe para atividades estratégicas.",
     features: [
-      "React, Next.js & TypeScript",
-      "Design UI/UX personalizado",
-      "SEO técnico avançado",
-      "Otimização de performance",
-      "PWA (Progressive Web App)",
-      "Analytics e tracking integrados"
+      "RPA para sistemas sem API",
+      "Integração entre plataformas",
+      "Fluxos de aprovação automáticos",
+      "Notificações e relatórios automáticos",
+      "Conciliação e processamento de dados",
+      "Monitoramento e logs de auditoria"
     ],
     benefits: [
-      { icon: "🚀", text: "Carregamento em menos de 2 segundos" },
-      { icon: "📱", text: "100% responsivo em todos dispositivos" },
-      { icon: "🎯", text: "Aumento médio de 45% em conversões" }
+      { icon: "�", text: "Redução de até 70% em custos operacionais" },
+      { icon: "⏰", text: "Processos executados 24/7" },
+      { icon: "🎯", text: "Erros humanos reduzidos a zero" }
     ],
-    technologies: ["React", "Vue.js", "Next.js", "TypeScript", "Tailwind", "JavaScript ES6+"],
+    technologies: ["Python", "Selenium", "Playwright", "Airflow", "Redis", "RabbitMQ", "FastAPI"],
     image: serviceImage2,
+    link: "/automacao-empresarial"
   },
   {
     number: "03",
-    title: "Automação & Bots",
-    subtitle: "Tecnologia que trabalha 24/7",
-    description: "Bots inteligentes e sistemas de automação que eliminam tarefas repetitivas, reduzem erros humanos e liberam sua equipe para focar no que realmente importa. Atendimento automatizado que nunca dorme.",
+    title: "Sistemas Corporativos",
+    subtitle: "ERP, CRM e portais sob medida",
+    description: "Desenvolvemos sistemas corporativos personalizados que integram departamentos, padronizam processos e oferecem visão em tempo real da operação. Do CRM ao ERP, tudo adaptado ao seu negócio.",
     features: [
-      "Bots para WhatsApp Business",
-      "Chatbots com IA integrada",
-      "Automação de processos (RPA)",
-      "Integração com CRM e ERPs",
-      "Notificações automáticas",
-      "Dashboards em tempo real"
+      "ERP e CRM personalizados",
+      "Portais internos e externos",
+      "Dashboards executivos",
+      "Gestão de usuários e permissões",
+      "Workflows e aprovações",
+      "Relatórios e indicadores"
     ],
     benefits: [
-      { icon: "💰", text: "Redução de até 70% em custos operacionais" },
-      { icon: "⏰", text: "Atendimento 24/7 sem interrupção" },
-      { icon: "📊", text: "Relatórios e métricas detalhadas" }
+      { icon: "🏗️", text: "Sistema adaptado ao seu processo" },
+      { icon: "🔒", text: "Segurança e auditoria corporativa" },
+      { icon: "📊", text: "Visão completa da operação" }
     ],
-    technologies: ["Python", "Selenium", "Puppeteer", "BeautifulSoup", "RPA", "OpenAI"],
+    technologies: ["Python", "Django", "FastAPI", "React", "Vue.js", "PostgreSQL", "Docker"],
     image: serviceImage3,
+    link: "/software-corporativo"
+  },
+  {
+    number: "04",
+    title: "Integrações",
+    subtitle: "Conecte toda a sua operação",
+    description: "Criamos APIs e conectores para integrar ERPs, CRMs, sistemas legados e serviços de terceiros. Elimine silos de informação e mantenha dados sincronizados em tempo real.",
+    features: [
+      "APIs REST e GraphQL",
+      "Integração com ERPs e CRMs",
+      "Conectores para sistemas legados",
+      "ETL e sincronização de dados",
+      "Webhooks e filas",
+      "Monitoramento de integrações"
+    ],
+    benefits: [
+      { icon: "�", text: "Sistemas conectados em tempo real" },
+      { icon: "⚡", text: "Eliminação de entrada manual de dados" },
+      { icon: "�", text: "Dados centralizados para decisões" }
+    ],
+    technologies: ["Python", "FastAPI", "Node.js", "PostgreSQL", "Redis", "Apache Kafka", "Docker"],
+    image: serviceImage2,
+    link: "/integracao-de-sistemas"
   },
 ];
 
@@ -214,24 +240,32 @@ const ServicesPage = () => {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Software Sob Medida",
-            "description": "Desenvolvimento de sistemas personalizados"
+            "name": "Inteligência Artificial",
+            "description": "Assistentes corporativos, RAG, chatbots e análise de documentos com IA"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Aplicações Web",
-            "description": "Sites e aplicações web de alta performance"
+            "name": "Automação de Processos",
+            "description": "RPA, integrações e eliminação de tarefas repetitivas"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Automação & Bots",
-            "description": "Bots inteligentes e automações"
+            "name": "Sistemas Corporativos",
+            "description": "ERP, CRM, portais internos e dashboards sob medida"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Integrações",
+            "description": "APIs e conectores para ERPs, CRMs e sistemas legados"
           }
         }
       ]
@@ -241,10 +275,10 @@ const ServicesPage = () => {
   return (
     <>
       <SEO
-        title="Serviços de Desenvolvimento - Software Sob Medida que Aumenta Receita | PyScript.tech"
-        description="Software sob medida, aplicações web de alta conversão e automações inteligentes. ROI de 300% em 6 meses. Entrega em 30 dias. Garantia de satisfação."
+        title="Automação, IA e Sistemas Corporativos para Empresas | PyScript.tech"
+        description="Inteligência Artificial, Automação de Processos, Sistemas Corporativos e Integrações sob medida. Transforme processos manuais em operações inteligentes."
         url="https://pyscript.tech/services"
-        keywords="desenvolvimento de software, software sob medida, aplicações web, automação de processos, desenvolvimento react, desenvolvimento django, software house"
+        keywords="inteligência artificial para empresas, automação empresarial, sistemas corporativos, integração de sistemas, software sob medida, desenvolvimento python, RAG, ERP, CRM"
       />
       
       {/* Schema.org JSON-LD */}
@@ -255,15 +289,15 @@ const ServicesPage = () => {
         {/* Hero Section */}
         <section className="servicesHero">
         <div className="heroContent">
-          <span className="heroBadge">🚀 Serviços que Geram ROI Comprovado</span>
+          <span className="heroBadge">🚀 Automação • IA • Sistemas Corporativos</span>
           <h1>
-            Soluções Sob Medida que
-            <span>Aumentam Receita e Reduzem Custos</span>
+            Soluções que Transformam
+            <span>Processos Manuais em Operações Inteligentes</span>
           </h1>
           <p>
-            Software personalizado, aplicações web de alta conversão e automações inteligentes. 
-            <strong>Entregamos tecnologia que se paga sozinha em até 6 meses</strong> através de 
-            aumento de vendas e redução de custos operacionais.
+            Inteligência Artificial, Automação de Processos, Sistemas Corporativos e Integrações 
+            sob medida. <strong>Resolvemos problemas de negócio com tecnologia</strong>, reduzindo 
+            custos e liberando sua equipe para crescer.
           </p>
         </div>
 
@@ -283,7 +317,7 @@ const ServicesPage = () => {
         {servicesData.map((service, index) => (
           <div key={index} className="serviceCard">
             <div className="cardImageWrapper">
-              <img src={service.image} alt={service.title} className="cardImage" />
+              <img src={service.image} alt={service.title} className="cardImage" loading="lazy" decoding="async" />
               <span className="cardNumber">{service.number}</span>
             </div>
             <div className="cardContent">
@@ -323,8 +357,8 @@ const ServicesPage = () => {
                 </div>
               </div>
 
-              <button className="cardButton" onClick={() => navigate('/contact')}>
-                <span>Solicitar Proposta</span>
+              <button className="cardButton" onClick={() => navigate(service.link || '/contact')}>
+                <span>Saiba Mais</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -358,6 +392,8 @@ const ServicesPage = () => {
 
       {/* Comparison Section */}
       <ComparisonSection />
+
+      <ExecutionSection />
 
       {/* FAQ Section */}
       <section className="faqSection">

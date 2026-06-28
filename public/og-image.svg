@@ -1,0 +1,15 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <text x="600" y="220" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#ffffff" text-anchor="middle">PyScript.tech</text>
+  <text x="600" y="310" font-family="Arial, sans-serif" font-size="42" fill="#00d4ff" text-anchor="middle">Automação • IA • Sistemas Corporativos</text>
+  <text x="600" y="410" font-family="Arial, sans-serif" font-size="28" fill="#b0b0c0" text-anchor="middle">Software sob medida para empresas que querem crescer</text>
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="24" fill="#00ffcc" text-anchor="middle">com menos esforço operacional.</text>
+  <rect x="450" y="520" width="300" height="50" rx="8" fill="#00d4ff" />
+  <text x="600" y="555" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#0a0a0f" text-anchor="middle">Solicitar Diagnóstico Gratuito</text>
+</svg>

@@ -1,0 +1,509 @@
+.diagnosticoPage {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a0a0f 0%, #12121e 100%);
+  padding: 100px 24px 60px;
+  color: #ffffff;
+}
+
+.diagnosticoContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.diagnosticoHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.diagnosticoBadge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 50px;
+  color: #00d4ff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.diagnosticoHeader h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.diagnosticoHeader p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Progress */
+.progressBar {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.progressSteps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.progressStep {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(26, 26, 36, 0.8);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.progressStep.active {
+  background: rgba(0, 212, 255, 0.2);
+  border-color: #00d4ff;
+  color: #00d4ff;
+}
+
+.progressStep.completed {
+  background: #00d4ff;
+  border-color: #00d4ff;
+  color: #0a0a0f;
+}
+
+.progressLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-50%);
+  z-index: 1;
+  margin: 0 30px;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #7c3aed);
+  transition: width 0.3s ease;
+}
+
+/* Form */
+.diagnosticoForm {
+  background: rgba(26, 26, 36, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.formStep h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: #ffffff;
+}
+
+.formStep h2 svg {
+  color: #00d4ff;
+}
+
+.stepDescription {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formField.fullWidth {
+  grid-column: 1 / -1;
+}
+
+.formField label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.formField input,
+.formField select,
+.formField textarea {
+  padding: 14px 16px;
+  background: rgba(10, 10, 15, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.formField input:focus,
+.formField select:focus,
+.formField textarea:focus {
+  border-color: #00d4ff;
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+.formField input::placeholder,
+.formField textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.formField textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.fieldError {
+  font-size: 0.8rem;
+  color: #ef4444;
+}
+
+/* Interest Grid */
+.interestGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.interestCard {
+  background: rgba(10, 10, 15, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.interestCard:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.interestCard.selected {
+  border-color: #00d4ff;
+  background: rgba(0, 212, 255, 0.1);
+}
+
+.interestCheck {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+.interestCard.selected .interestCheck {
+  background: #00d4ff;
+  border-color: #00d4ff;
+  color: #0a0a0f;
+}
+
+.interestCard h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 8px;
+  padding-right: 32px;
+}
+
+.interestCard p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+/* Trust */
+.formTrust {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trustItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.trustItem svg {
+  color: #00d4ff;
+  flex-shrink: 0;
+}
+
+/* Navigation */
+.formNavigation {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.navButton.primary {
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  color: #0a0a0f;
+}
+
+.navButton.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+}
+
+.navButton.secondary {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.navButton.secondary:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Success */
+.successMessage {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background: rgba(26, 26, 36, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 20px;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(0, 212, 255, 0.15);
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #00d4ff;
+  margin: 0 auto 24px;
+}
+
+.successMessage h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.successMessage p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.successActions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  border: none;
+  border-radius: 10px;
+  color: #0a0a0f;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .diagnosticoPage {
+    padding: 80px 16px 40px;
+  }
+
+  .diagnosticoHeader h1 {
+    font-size: 1.75rem;
+  }
+
+  .diagnosticoForm {
+    padding: 24px;
+  }
+
+  .formGrid,
+  .interestGrid,
+  .formTrust {
+    grid-template-columns: 1fr;
+  }
+
+  .formNavigation {
+    flex-direction: column;
+  }
+
+  .navButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .successActions {
+    flex-direction: column;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.afterDiagnosisSection {
+  margin-top: 48px;
+  padding: 32px;
+  background: rgba(26, 26, 36, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+}
+
+.afterDiagnosisSection h3 {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.afterDiagnosisSteps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.afterDiagnosisStep {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+}
+
+.afterDiagnosisStep strong {
+  display: block;
+  color: #ffffff;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.afterDiagnosisStep p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.afterDiagnosisIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 10px;
+  color: #00d4ff;
+  font-size: 1.1rem;
+}
+
+.afterDiagnosisNote {
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.afterDiagnosisNote strong {
+  color: #00d4ff;
+}
+
+@media (max-width: 768px) {
+  .afterDiagnosisSteps {
+    grid-template-columns: 1fr;
+  }
+
+  .afterDiagnosisSection {
+    padding: 24px;
+  }
+}

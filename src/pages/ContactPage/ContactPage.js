@@ -125,9 +125,10 @@ const ContactPage = () => {
     <>
       <Confetti active={showConfetti} />
       <SEO
-        title="Contato - Entre em Contato com Nossa Equipe"
-        description="Entre em contato conosco para discutir seu projeto. Respondemos em até 24 horas. WhatsApp, email ou agende uma reunião."
+        title="Contato - Solicite Diagnóstico Gratuito | PyScript.tech"
+        description="Solicite um diagnóstico gratuito de automação, IA ou sistemas corporativos. Respondemos em até 24 horas. WhatsApp, email ou agende uma reunião."
         url="https://pyscript.tech/contact"
+        keywords="contato pyscript.tech, diagnóstico gratuito, automação empresarial, inteligência artificial, software corporativo"
       />
       <div className="contactPage">
         {/* Hero Section */}
@@ -140,12 +141,12 @@ const ContactPage = () => {
             Fale Conosco
           </span>
           <h1>
-            Vamos transformar
-            <span>sua ideia em realidade</span>
+            Solicite um Diagnóstico
+            <span>Gratuito da sua Operação</span>
           </h1>
           <p>
-            Estamos prontos para ouvir sobre seu projeto. Entre em contato e 
-            receba uma proposta personalizada em até 24 horas.
+            Conte-nos sobre seus processos, desafios e objetivos. Em até 24 horas 
+            nossa equipe retorna com um diagnóstico inicial e uma proposta personalizada.
           </p>
         </div>
       </section>

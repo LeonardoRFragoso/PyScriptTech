@@ -1,0 +1,346 @@
+.caseStudyPage {
+  background: #0a0a0f;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+.caseContainer {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero */
+.caseHero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 120px 48px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #12121e 0%, #0a0a0f 100%);
+}
+
+.caseHeroContent {
+  max-width: 560px;
+}
+
+.caseHeroBadge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 50px;
+  color: #00d4ff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.caseHero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.caseSubtitle {
+  font-size: 1.35rem;
+  color: #00d4ff;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.caseDescription {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+.caseHeroActions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.caseCtaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+  border: none;
+  border-radius: 10px;
+  color: #0a0a0f;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.caseCtaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
+}
+
+.caseCtaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.caseCtaSecondary:hover {
+  border-color: #00d4ff;
+  color: #00d4ff;
+}
+
+.caseHeroImage {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.caseHeroImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Results */
+.caseResults {
+  padding: 40px 0 60px;
+  background: #0a0a0f;
+}
+
+.caseResultsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.caseResultCard {
+  background: rgba(26, 26, 36, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.caseResultNumber {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00d4ff;
+  margin-bottom: 8px;
+}
+
+.caseResultLabel {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Sections */
+.caseSection {
+  padding: 80px 0;
+  background: #0a0a0f;
+}
+
+.caseSectionAlt {
+  background: #12121e;
+}
+
+.caseSectionHeader {
+  margin-bottom: 40px;
+}
+
+.caseSectionBadge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 50px;
+  color: #a78bfa;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.caseSectionHeader h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.caseSectionContent p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.caseFeatureList {
+  list-style: none;
+  padding: 0;
+  margin: 32px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.caseFeatureList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.caseFeatureList li svg {
+  color: #00d4ff;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+/* Architecture */
+.caseArchitecture {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.caseArchitectureStep {
+  background: rgba(26, 26, 36, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 28px;
+  position: relative;
+}
+
+.caseArchitectureNumber {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: rgba(0, 212, 255, 0.2);
+}
+
+.caseArchitectureStep h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 12px;
+  padding-right: 50px;
+}
+
+.caseArchitectureStep p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+}
+
+/* Technologies */
+.caseTechGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.caseTechTag {
+  padding: 10px 18px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 50px;
+  color: #00d4ff;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Final CTA */
+.caseFinalCta {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #0a0a0f 0%, #12121e 100%);
+}
+
+.caseFinalCtaContent {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.caseFinalCtaContent h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.caseFinalCtaContent p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 1024px) {
+  .caseHero {
+    grid-template-columns: 1fr;
+    padding: 100px 24px 60px;
+    text-align: center;
+  }
+
+  .caseHeroContent {
+    max-width: 100%;
+  }
+
+  .caseHeroActions {
+    justify-content: center;
+  }
+
+  .caseHero h1 {
+    font-size: 2.25rem;
+  }
+
+  .caseArchitecture {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .caseHero h1 {
+    font-size: 1.75rem;
+  }
+
+  .caseSectionHeader h2,
+  .caseFinalCtaContent h2 {
+    font-size: 1.5rem;
+  }
+
+  .caseFeatureList {
+    grid-template-columns: 1fr;
+  }
+
+  .caseCtaPrimary,
+  .caseCtaSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+}

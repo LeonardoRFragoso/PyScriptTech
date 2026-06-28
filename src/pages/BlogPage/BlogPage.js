@@ -108,9 +108,10 @@ const BlogPage = () => {
     <div className="blogPage">
       <ReadingProgress color="#00d4ff" />
       <SEO
-        title="Blog - Artigos sobre Tecnologia e Desenvolvimento"
-        description="Artigos, tutoriais e insights sobre desenvolvimento de software, tendências tecnológicas, cases de sucesso e carreira em tech."
+        title="Blog - Automação, IA e Sistemas Corporativos | PyScript.tech"
+        description="Artigos, cases e insights sobre automação empresarial, inteligência artificial para empresas, software corporativo e desenvolvimento de sistemas."
         url="https://pyscript.tech/blog"
+        keywords="automação empresarial, inteligência artificial para empresas, software corporativo, desenvolvimento python, integração de sistemas, software sob medida"
       />
 
       {/* Hero Section */}
@@ -124,11 +125,11 @@ const BlogPage = () => {
           <span className="heroBadge">Blog</span>
           <h1>
             Insights sobre
-            <span>Tecnologia e Inovação</span>
+            <span>Automação, IA e Sistemas Corporativos</span>
           </h1>
           <p>
-            Artigos, tutoriais e cases de sucesso para ajudar você a tomar 
-            decisões mais inteligentes sobre tecnologia.
+            Artigos, cases e guias práticos para ajudar empresas a reduzir custos, 
+            automatizar processos e tomar decisões com inteligência artificial.
           </p>
 
           {/* Search Bar */}
@@ -136,7 +137,7 @@ const BlogPage = () => {
             <FaSearch className="searchIcon" />
             <input
               type="text"
-              placeholder="Buscar artigos..."
+              placeholder="Buscar artigos sobre IA, automação e sistemas..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />

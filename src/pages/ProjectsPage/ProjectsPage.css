@@ -366,6 +366,21 @@
   transform: translateY(-2px);
 }
 
+.caseLink {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(0, 212, 255, 0.15));
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: #a78bfa;
+  cursor: pointer;
+}
+
+.caseLink:hover {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.25), rgba(0, 212, 255, 0.25));
+  border-color: rgba(124, 58, 237, 0.5);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.2);
+}
+
 /* Video Expanded */
 .videoExpanded {
   position: absolute;

@@ -1,0 +1,406 @@
+.execucaoPage {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a0a0f 0%, #12121e 100%);
+  color: #ffffff;
+  padding-bottom: 80px;
+}
+
+.execucaoContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.execucaoHero {
+  padding: 120px 24px 80px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.08) 0%, transparent 50%);
+}
+
+.execucaoBadge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 50px;
+  color: #00d4ff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.execucaoHero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.execucaoHero p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.execucaoSteps {
+  padding: 80px 0;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.stepCard {
+  position: relative;
+  padding: 32px 24px;
+  background: rgba(26, 26, 36, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  text-align: center;
+}
+
+.stepNumber {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 212, 255, 0.15);
+  border-radius: 50%;
+  color: #00d4ff;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.stepIconLarge {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 16px;
+  color: #00d4ff;
+  font-size: 1.75rem;
+}
+
+.stepCard h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.stepCard p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.execucaoPortal {
+  padding: 80px 0;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.portalContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.portalText h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.portalText > p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.portalList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.portalList li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.portalList li svg {
+  color: #00d4ff;
+  font-size: 1.2rem;
+}
+
+.portalNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.portalNote svg {
+  color: #00d4ff;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.portalVisual {
+  display: flex;
+  justify-content: center;
+}
+
+.portalCard {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(26, 26, 36, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.portalCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: rgba(0, 212, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.portalCardHeader span {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.portalCardHeader strong {
+  color: #00d4ff;
+  font-size: 0.9rem;
+}
+
+.portalCardBody {
+  padding: 24px;
+}
+
+.portalProgress {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.portalProgressBar {
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #0099cc);
+  border-radius: 3px;
+}
+
+.portalMilestones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.portalMilestone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+.portalMilestone.done {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.portalMilestone.active {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.execucaoFAQ {
+  padding: 80px 0;
+}
+
+.execucaoFAQ .sectionHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.execucaoFAQ .sectionHeader h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.execucaoFAQ .sectionHeader p {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.faqList {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  margin-bottom: 12px;
+  background: rgba(26, 26, 36, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.faqQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.faqIcon {
+  transition: transform 0.3s ease;
+}
+
+.faqItem.active .faqIcon {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faqItem.active .faqAnswer {
+  max-height: 200px;
+}
+
+.faqAnswer p {
+  padding: 0 24px 18px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.execucaoCTA {
+  padding: 80px 24px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 100%, rgba(0, 212, 255, 0.08) 0%, transparent 50%);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.execucaoCTA h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.execucaoCTA p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 32px;
+  font-size: 1.05rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.ctaPrimary, .ctaSecondary {
+  padding: 16px 32px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ctaPrimary {
+  background: linear-gradient(135deg, #00d4ff, #0099cc);
+  border: none;
+  color: #0a0a0f;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
+}
+
+.ctaSecondary {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.ctaSecondary:hover {
+  border-color: #00d4ff;
+  color: #00d4ff;
+}
+
+@media (max-width: 1200px) {
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portalContent {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .execucaoHero {
+    padding: 80px 20px 60px;
+  }
+
+  .execucaoHero h1 {
+    font-size: 2rem;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+  }
+
+  .ctaPrimary, .ctaSecondary {
+    width: 100%;
+  }
+}

@@ -2,6 +2,20 @@ import ReactGA from 'react-ga4';
 
 const MEASUREMENT_ID = process.env.REACT_APP_GA4_MEASUREMENT_ID;
 
+// Push to Google Tag Manager dataLayer
+const pushToDataLayer = (event, params = {}) => {
+  if (window.dataLayer) {
+    window.dataLayer.push({ event, ...params });
+  }
+};
+
+// Push to Microsoft Clarity
+const pushToClarity = (event, params = {}) => {
+  if (window.clarity) {
+    window.clarity('event', event, params);
+  }
+};
+
 export const initGA = () => {
   if (MEASUREMENT_ID && MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
     ReactGA.initialize(MEASUREMENT_ID);
@@ -12,12 +26,15 @@ export const initGA = () => {
 };
 
 export const logPageView = (path) => {
+  const pagePath = path || window.location.pathname + window.location.search;
   if (MEASUREMENT_ID && MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
     ReactGA.send({ 
       hitType: 'pageview', 
-      page: path || window.location.pathname + window.location.search 
+      page: pagePath 
     });
   }
+  pushToDataLayer('page_view', { page_path: pagePath, page_title: document.title });
+  pushToClarity('page_view', { page_path: pagePath });
 };
 
 export const logEvent = (category, action, label, value) => {
@@ -29,6 +46,8 @@ export const logEvent = (category, action, label, value) => {
       value,
     });
   }
+  pushToDataLayer('custom_event', { event_category: category, event_action: action, event_label: label, value });
+  pushToClarity('custom_event', { event_category: category, event_action: action, event_label: label });
 };
 
 export const logButtonClick = (buttonName, location) => {

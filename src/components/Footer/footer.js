@@ -10,14 +10,15 @@ const Footer = () => {
   const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/services', label: 'Soluções' },
-    { path: '/projects', label: 'Portfólio' },
+    { path: '/projects', label: 'Cases' },
     { path: '/contact', label: 'Contato' },
   ];
 
   const services = [
-    'Software Sob Medida',
-    'Aplicações Web',
-    'Automação & Bots',
+    'Inteligência Artificial',
+    'Automação de Processos',
+    'Sistemas Corporativos',
+    'Integrações',
     'Consultoria Tech',
   ];
 
@@ -81,8 +82,8 @@ const Footer = () => {
               <img src={logo} alt="PyScript.tech" />
             </Link>
             <p className={styles.footerDescription}>
-              Transformamos ideias em soluções digitais. Desenvolvimento de software sob medida, 
-              aplicações web e automação de processos para impulsionar seu negócio.
+              Automação, Inteligência Artificial e Sistemas Corporativos sob medida. 
+              Transformamos processos manuais em operações inteligentes para empresas que querem crescer.
             </p>
             <div className={styles.footerSocials}>
               {socialLinks.map((social) => (

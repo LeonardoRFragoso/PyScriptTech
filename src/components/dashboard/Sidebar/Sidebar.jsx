@@ -1,11 +1,14 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthContext';
-import { 
-  FiHome, 
-  FiUsers, 
-  FiBriefcase, 
-  FiCheckSquare, 
+import {
+  FiHome,
+  FiUsers,
+  FiUserPlus,
+  FiBriefcase,
+  FiFileText,
+  FiTarget,
+  FiCheckSquare,
   FiDollarSign,
   FiBarChart2,
   FiSettings,
@@ -21,6 +24,10 @@ const Sidebar = ({ isOpen, isCollapsed, onClose, onToggleCollapse }) => {
 
   const menuItems = [
     { icon: FiHome, label: 'Dashboard', path: '/dashboard' },
+    { icon: FiUserPlus, label: 'Leads', path: '/dashboard/leads' },
+    { icon: FiFileText, label: 'Propostas', path: '/dashboard/proposals' },
+    { icon: FiTarget, label: 'Prospecção', path: '/dashboard/prospects' },
+    { icon: FiBarChart2, label: 'Métricas', path: '/dashboard/metrics' },
     { icon: FiUsers, label: 'Clientes', path: '/dashboard/clients' },
     { icon: FiBriefcase, label: 'Projetos', path: '/dashboard/projects' },
     { icon: FiCheckSquare, label: 'Tarefas', path: '/dashboard/tasks' },

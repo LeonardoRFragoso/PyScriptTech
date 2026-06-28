@@ -1,0 +1,14 @@
+{
+  "importMap": "./import_map.json",
+  "compilerOptions": {
+    "lib": ["deno.ns", "dom", "dom.iterable", "esnext"],
+    "strict": true,
+    "allowJs": false
+  },
+  "include": [
+    "types/**/*.d.ts",
+    "proflow-create-project/index.ts",
+    "proflow-resend-invite/index.ts",
+    "_shared/**/*.ts"
+  ]
+}
