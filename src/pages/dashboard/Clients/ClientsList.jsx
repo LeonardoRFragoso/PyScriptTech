@@ -194,7 +194,7 @@ const ClientsList = () => {
                     </td>
                     <td>
                       <span className={styles.date}>
-                        {new Date(client.createdAt).toLocaleDateString('pt-BR')}
+                        {client.created_at ? new Date(client.created_at).toLocaleDateString('pt-BR') : '-'}
                       </span>
                     </td>
                     <td>

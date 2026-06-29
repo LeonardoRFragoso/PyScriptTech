@@ -441,3 +441,19 @@
   color: #555;
 }
 :global([data-theme="light"]) .actionButton:hover { background: rgba(0,0,0,0.08); color: #1a1a2e; }
+
+/* ── Light theme: empty state ── */
+:global([data-theme="light"]) .empty {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+:global([data-theme="light"]) .empty h3 { color: #1a1a2e; }
+:global([data-theme="light"]) .empty p { color: #999; }
+:global([data-theme="light"]) .deleteModal p { color: #666; }
+:global([data-theme="light"]) .deleteModal strong { color: #1a1a2e; }
+:global([data-theme="light"]) .searchWrapper input {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.1);
+  color: #1a1a2e;
+}

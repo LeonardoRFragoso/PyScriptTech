@@ -118,7 +118,7 @@ export const useClients = (initialParams = {}) => {
   };
 
   const filterByStatus = (status) => {
-    const newParams = { ...params, status, page: 1 };
+    const newParams = { ...params, page: 1 };
     setParams(newParams);
     fetchClients(newParams);
   };

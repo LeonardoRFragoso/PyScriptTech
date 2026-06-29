@@ -251,3 +251,22 @@
 :global([data-theme="light"]) .overdueDate { color: #ef4444; }
 :global([data-theme="light"]) .loadingState,
 :global([data-theme="light"]) .emptyState { color: #bbb; }
+
+/* ── Light theme: filter bar & table container ── */
+:global([data-theme="light"]) .searchBox,
+:global([data-theme="light"]) .filterGroup {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.08);
+  color: #555;
+}
+:global([data-theme="light"]) .searchBox input,
+:global([data-theme="light"]) .filterGroup select {
+  color: #1a1a2e;
+  background: transparent;
+}
+:global([data-theme="light"]) .searchBox input::placeholder { color: #bbb; }
+:global([data-theme="light"]) .tableContainer {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}

@@ -1,116 +1,47 @@
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+import {
+  getLeads,
+  getLeadById,
+  createLead,
+  updateLead,
+  deleteLead,
+} from './database';
 
-const getAuthHeaders = () => {
-  const token = localStorage.getItem('@pyscript:token');
-  return {
-    'Authorization': `Bearer ${token}`,
-    'Content-Type': 'application/json',
-  };
-};
-
-const handleResponse = async (response) => {
-  if (!response.ok) {
-    const error = await response.json().catch(() => ({ message: 'Erro na requisição' }));
-    throw new Error(error.message || `HTTP error! status: ${response.status}`);
-  }
-  return response.json();
-};
+const CLIENT_STAGE = 'fechado';
 
 export const clientsService = {
   getAll: async (params = {}) => {
-    const queryParams = new URLSearchParams();
-    
-    if (params.search) queryParams.append('search', params.search);
-    if (params.status) queryParams.append('status', params.status);
-    if (params.page) queryParams.append('page', params.page);
-    if (params.limit) queryParams.append('limit', params.limit);
-    if (params.sort) queryParams.append('sort', params.sort);
-    
-    const queryString = queryParams.toString();
-    const url = `${API_URL}/clients${queryString ? `?${queryString}` : ''}`;
-    
-    const response = await fetch(url, { headers: getAuthHeaders() });
-    return handleResponse(response);
+    const filters = { stage: CLIENT_STAGE };
+    if (params.search) filters.search = params.search;
+    return getLeads(filters);
   },
 
   getById: async (id) => {
-    const response = await fetch(`${API_URL}/clients/${id}`, { headers: getAuthHeaders() });
-    return handleResponse(response);
+    return getLeadById(id);
   },
 
   create: async (clientData) => {
-    const response = await fetch(`${API_URL}/clients`, {
-      method: 'POST',
-      headers: getAuthHeaders(),
-      body: JSON.stringify(clientData),
-    });
-    return handleResponse(response);
+    return createLead({ ...clientData, stage: CLIENT_STAGE });
   },
 
   update: async (id, clientData) => {
-    const response = await fetch(`${API_URL}/clients/${id}`, {
-      method: 'PUT',
-      headers: getAuthHeaders(),
-      body: JSON.stringify(clientData),
-    });
-    return handleResponse(response);
+    return updateLead(id, clientData);
   },
 
   delete: async (id) => {
-    const response = await fetch(`${API_URL}/clients/${id}`, {
-      method: 'DELETE',
-      headers: getAuthHeaders(),
-    });
-    return handleResponse(response);
+    return deleteLead(id);
   },
 
   search: async (query) => {
-    const response = await fetch(
-      `${API_URL}/clients/search?q=${encodeURIComponent(query)}`,
-      { headers: getAuthHeaders() }
-    );
-    return handleResponse(response);
+    return getLeads({ stage: CLIENT_STAGE, search: query });
   },
 
   getStats: async () => {
-    const response = await fetch(`${API_URL}/clients/stats`, { headers: getAuthHeaders() });
-    return handleResponse(response);
+    const clients = await getLeads({ stage: CLIENT_STAGE });
+    return { total: clients.length };
   },
 
   exportToCSV: async () => {
-    const response = await fetch(`${API_URL}/clients/export`, { headers: getAuthHeaders() });
-    if (!response.ok) throw new Error('Export failed');
-    return response.blob();
-  },
-
-  importFromCSV: async (file) => {
-    const formData = new FormData();
-    formData.append('file', file);
-    const token = localStorage.getItem('@pyscript:token');
-    
-    const response = await fetch(`${API_URL}/clients/import`, {
-      method: 'POST',
-      headers: { 'Authorization': `Bearer ${token}` },
-      body: formData,
-    });
-    return handleResponse(response);
-  },
-
-  addNote: async (clientId, note) => {
-    const response = await fetch(`${API_URL}/clients/${clientId}/notes`, {
-      method: 'POST',
-      headers: getAuthHeaders(),
-      body: JSON.stringify({ content: note }),
-    });
-    return handleResponse(response);
-  },
-
-  getNotes: async (clientId) => {
-    const response = await fetch(
-      `${API_URL}/clients/${clientId}/notes`,
-      { headers: getAuthHeaders() }
-    );
-    return handleResponse(response);
+    throw new Error('Export não disponível');
   },
 };
 

@@ -20,8 +20,6 @@ export const initGA = () => {
   if (MEASUREMENT_ID && MEASUREMENT_ID !== 'G-XXXXXXXXXX') {
     ReactGA.initialize(MEASUREMENT_ID);
     console.log('✅ Google Analytics initialized');
-  } else {
-    console.log('⚠️ Google Analytics not configured');
   }
 };
 
