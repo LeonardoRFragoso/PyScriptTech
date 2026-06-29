@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../../contexts/AuthContext';
+import { useTheme } from '../../../contexts/ThemeContext';
 import { 
   FiMenu, 
   FiBell, 
@@ -14,10 +15,10 @@ import styles from './Header.module.css';
 
 const Header = ({ onToggleSidebar, sidebarOpen }) => {
   const { user, logout } = useAuth();
+  const { isDark, toggleTheme } = useTheme();
   const [showNotifications, setShowNotifications] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [darkMode, setDarkMode] = useState(true);
   
   const notificationsRef = useRef(null);
   const userMenuRef = useRef(null);
@@ -68,10 +69,11 @@ const Header = ({ onToggleSidebar, sidebarOpen }) => {
       <div className={styles.right}>
         <button 
           className={styles.iconButton}
-          onClick={() => setDarkMode(!darkMode)}
+          onClick={toggleTheme}
           aria-label="Toggle theme"
+          title={isDark ? 'Modo claro' : 'Modo escuro'}
         >
-          {darkMode ? <FiSun /> : <FiMoon />}
+          {isDark ? <FiSun /> : <FiMoon />}
         </button>
 
         <div className={styles.notificationsWrapper} ref={notificationsRef}>

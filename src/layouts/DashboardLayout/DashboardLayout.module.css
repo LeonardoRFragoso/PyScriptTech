@@ -76,6 +76,27 @@
   background: rgba(0, 212, 255, 0.4);
 }
 
+/* ── Light theme overrides ── */
+:global([data-theme="light"]) .container {
+  background: #f0f4f8;
+}
+
+:global([data-theme="light"]) .container::before {
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+}
+
+:global([data-theme="light"]) .container::after {
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, transparent 70%);
+}
+
+:global([data-theme="light"]) .content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+:global([data-theme="light"]) .content::-webkit-scrollbar-thumb {
+  background: rgba(0, 164, 196, 0.3);
+}
+
 @media (max-width: 1024px) {
   .main.shifted {
     margin-left: 0;

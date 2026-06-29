@@ -324,6 +324,94 @@
   color: #ff6b6b;
 }
 
+/* ── Light theme overrides ── */
+:global([data-theme="light"]) .header {
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+:global([data-theme="light"]) .menuButton {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #666;
+}
+
+:global([data-theme="light"]) .menuButton:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #1a1a2e;
+}
+
+:global([data-theme="light"]) .searchInput {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #1a1a2e;
+}
+
+:global([data-theme="light"]) .searchInput::placeholder {
+  color: #aaa;
+}
+
+:global([data-theme="light"]) .searchInput:focus {
+  border-color: rgba(0, 168, 204, 0.5);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+:global([data-theme="light"]) .searchIcon {
+  color: #aaa;
+}
+
+:global([data-theme="light"]) .iconButton {
+  color: #777;
+}
+
+:global([data-theme="light"]) .iconButton:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #1a1a2e;
+}
+
+:global([data-theme="light"]) .dropdown {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+:global([data-theme="light"]) .dropdownHeader {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+:global([data-theme="light"]) .dropdownHeader h3 {
+  color: #1a1a2e;
+}
+
+:global([data-theme="light"]) .emptyState {
+  color: #aaa;
+}
+
+:global([data-theme="light"]) .menuItem {
+  color: #555;
+}
+
+:global([data-theme="light"]) .menuItem:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: #1a1a2e;
+}
+
+:global([data-theme="light"]) .menuItem.logout {
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+:global([data-theme="light"]) .userButton {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+:global([data-theme="light"]) .userName {
+  color: #1a1a2e;
+}
+
+:global([data-theme="light"]) .userRole {
+  color: #999;
+}
+
 @media (max-width: 768px) {
   .header {
     padding: 1rem;

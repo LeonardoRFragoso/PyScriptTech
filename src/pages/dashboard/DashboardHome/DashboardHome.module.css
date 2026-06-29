@@ -520,6 +520,72 @@
   margin-bottom: 1.25rem;
 }
 
+/* ── Light theme overrides ── */
+:global([data-theme="light"]) .header h1 {
+  background: linear-gradient(135deg, #0099bb, #5b21b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+:global([data-theme="light"]) .header p { color: #777; }
+:global([data-theme="light"]) .date { color: #999; }
+
+:global([data-theme="light"]) .statCard {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+:global([data-theme="light"]) .statCard:hover {
+  border-color: rgba(0, 168, 204, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+:global([data-theme="light"]) .statLabel { color: #999; }
+:global([data-theme="light"]) .statValue > span:first-child { color: #1a1a2e; }
+:global([data-theme="light"]) .statSub { color: #bbb; }
+
+:global([data-theme="light"]) .section {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+:global([data-theme="light"]) .sectionHeader h2 { color: #1a1a2e; }
+:global([data-theme="light"]) .projectItem { border-bottom-color: rgba(0, 0, 0, 0.05); }
+:global([data-theme="light"]) .projectItem:hover { background: rgba(0, 0, 0, 0.02); }
+:global([data-theme="light"]) .projectInfo h3 { color: #1a1a2e; }
+:global([data-theme="light"]) .projectDeadline { color: #999; }
+:global([data-theme="light"]) .taskItem { background: rgba(0, 0, 0, 0.025); }
+:global([data-theme="light"]) .taskItem:hover { background: rgba(0, 0, 0, 0.05); }
+:global([data-theme="light"]) .taskContent h4 { color: #1a1a2e; }
+:global([data-theme="light"]) .taskProject { color: #aaa; }
+:global([data-theme="light"]) .taskDue { color: #aaa; }
+
+:global([data-theme="light"]) .chartCard {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+:global([data-theme="light"]) .chartCard h3 { color: #1a1a2e; }
+
+:global([data-theme="light"]) .summaryRow { border-bottom-color: rgba(0, 0, 0, 0.05); }
+:global([data-theme="light"]) .summaryRow span { color: #aaa; }
+:global([data-theme="light"]) .summaryRow strong { color: #1a1a2e; }
+
+:global([data-theme="light"]) .quickActions h2 { color: #1a1a2e; }
+:global([data-theme="light"]) .actionCard {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.07);
+  color: #777;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+:global([data-theme="light"]) .actionCard:hover {
+  background: linear-gradient(135deg, rgba(0, 168, 204, 0.08), rgba(91, 33, 182, 0.08));
+  color: #1a1a2e;
+  border-color: rgba(0, 168, 204, 0.2);
+}
+:global([data-theme="light"]) .emptyMessage { color: #bbb; }
+:global([data-theme="light"]) .refreshButton { border-color: rgba(0, 0, 0, 0.1); color: #999; }
+:global([data-theme="light"]) .refreshButton:hover { color: #0099bb; border-color: rgba(0, 153, 187, 0.3); }
+
 @media (max-width: 1200px) {
   .chartsGrid {
     grid-template-columns: repeat(2, 1fr);

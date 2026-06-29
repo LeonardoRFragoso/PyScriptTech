@@ -232,6 +232,65 @@
   text-transform: capitalize;
 }
 
+/* ── Light theme overrides ── */
+:global([data-theme="light"]) .sidebar {
+  background: #ffffff;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+:global([data-theme="light"]) .header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+:global([data-theme="light"]) .logo {
+  color: #1a1a2e;
+}
+
+:global([data-theme="light"]) .closeButton,
+:global([data-theme="light"]) .collapseButton {
+  color: #888;
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+:global([data-theme="light"]) .closeButton:hover,
+:global([data-theme="light"]) .collapseButton:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #1a1a2e;
+}
+
+:global([data-theme="light"]) .navItem {
+  color: #555;
+}
+
+:global([data-theme="light"]) .navItem:hover {
+  background: rgba(0, 168, 204, 0.07);
+  color: #0099bb;
+}
+
+:global([data-theme="light"]) .navItem.active {
+  background: rgba(0, 168, 204, 0.12);
+  color: #0099bb;
+  border-left-color: #0099bb;
+}
+
+:global([data-theme="light"]) .divider {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+:global([data-theme="light"]) .userSection {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+:global([data-theme="light"]) .userName {
+  color: #1a1a2e;
+}
+
+:global([data-theme="light"]) .userRole {
+  color: #999;
+}
+
 @media (min-width: 1025px) {
   .sidebar.open {
     transform: translateX(0);
