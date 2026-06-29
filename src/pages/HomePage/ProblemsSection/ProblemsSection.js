@@ -1,44 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaTable, FaHandPaper, FaRedo, FaChartBar, FaUnlink, FaRobot } from 'react-icons/fa';
+import { FaHandPaper, FaChartBar, FaUnlink } from 'react-icons/fa';
 import './ProblemsSection.css';
 
 const problems = [
   {
-    icon: <FaTable />,
-    title: 'Planilhas desorganizadas',
-    description: 'Dados espalhados em planilhas, dificultando a tomada de decisão e aumentando erros humanos.',
-    impact: 'Até 30% do tempo da equipe perdido em consolidação manual de dados.'
-  },
-  {
     icon: <FaHandPaper />,
-    title: 'Processos manuais',
-    description: 'Tarefas repetitivas que consomem horas produtivas e aumentam a margem de erro.',
-    impact: 'Custo operacional 40% maior do que processos automatizados.'
-  },
-  {
-    icon: <FaRedo />,
-    title: 'Retrabalho',
-    description: 'Falta de integração entre setores gera retrabalho e comunicação fragmentada.',
-    impact: 'Redução de 20-25% na produtividade da equipe.'
-  },
-  {
-    icon: <FaChartBar />,
-    title: 'Falta de indicadores',
-    description: 'Decisões baseadas em intuição por falta de dashboards e relatórios em tempo real.',
-    impact: 'Oportunidades perdidas e desperdício de investimento.'
+    title: 'Processos manuais e retrabalho',
+    description: 'Tarefas repetitivas consomem horas produtivas, geram erros e impedem que a equipe foque no que realmente importa.',
+    impact: 'Custo operacional até 40% maior do que em empresas com processos automatizados.'
   },
   {
     icon: <FaUnlink />,
-    title: 'Sistemas desconectados',
-    description: 'ERP, CRM e planilhas não conversam, criando silos de informação.',
-    impact: 'Atrasos no atendimento e retrabalho na sincronização de dados.'
+    title: 'Sistemas que não conversam',
+    description: 'ERP, CRM e planilhas isolados criam silos de informação, obrigando a equipe a digitar os mesmos dados em vários lugares.',
+    impact: 'Até 30% do tempo da equipe perdido em consolidação e sincronização manual.'
   },
   {
-    icon: <FaRobot />,
-    title: 'Falta de automação',
-    description: 'Equipes ocupadas com tarefas operacionais em vez de atividades estratégicas.',
-    impact: 'Crescimento limitado pela capacidade manual de atendimento.'
+    icon: <FaChartBar />,
+    title: 'Decisões sem dados',
+    description: 'Sem dashboards e relatórios em tempo real, decisões importantes são tomadas na base da intuição.',
+    impact: 'Oportunidades perdidas e investimentos mal direcionados por falta de visibilidade.'
   }
 ];
 
@@ -54,10 +36,10 @@ const ProblemsSection = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="problemsBadge">Desafios que Resolvemos</span>
-          <h2>Processos que Atrasam o Crescimento da Sua Empresa</h2>
+          <h2>Você reconhece alguma dessas situações?</h2>
           <p>
-            Muitas empresas perdem dinheiro todos os dias com processos ineficientes. 
-            Identificamos as dores mais comuns e mostramos o impacto financeiro de cada uma.
+            A maioria das empresas que nos procura enfrenta pelo menos um desses problemas — 
+            e muitas vezes os três ao mesmo tempo.
           </p>
         </motion.div>
 

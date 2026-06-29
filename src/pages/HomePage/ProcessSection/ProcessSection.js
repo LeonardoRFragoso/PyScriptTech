@@ -105,29 +105,6 @@ const ProcessSection = () => {
           ))}
         </div>
 
-        <motion.div
-          className="processCTA"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
-          <div className="ctaContent">
-            <h3>Pronto para Começar Seu Projeto?</h3>
-            <p>Agende uma reunião gratuita de 30 minutos e receba uma proposta personalizada em até 24 horas.</p>
-            <div className="ctaButtons">
-              <a href="/contact" className="ctaButtonPrimary">
-                Solicitar Orçamento Gratuito
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </a>
-              <a href="https://calendly.com/pyscripttech" target="_blank" rel="noopener noreferrer" className="ctaButtonSecondary">
-                Agendar Reunião
-              </a>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

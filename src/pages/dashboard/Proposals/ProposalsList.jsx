@@ -199,9 +199,18 @@ const ProposalsList = () => {
                         </td>
                         <td>
                           <div className={styles.actions}>
-                            {proposal.status === 'accepted' && (
+                            {proposal.status === 'accepted' && !proposal.proflow_project_id && (
                               <button className={`${styles.actionButton} ${styles.proFlowButton}`} onClick={() => handleCreateProFlow(proposal)} title="Criar projeto na ProFlow">
                                 <FiExternalLink />
+                              </button>
+                            )}
+                            {proposal.proflow_project_id && (
+                              <button
+                                className={`${styles.actionButton} ${styles.proFlowButton}`}
+                                onClick={() => handleCreateProFlow(proposal)}
+                                title={`ProFlow integrado · Cliente: ${proposal.proflow_client_status || 'aguardando'}`}
+                              >
+                                <FiCheckCircle />
                               </button>
                             )}
                             {(proposal.status === 'draft' || proposal.status === 'sent') && !proposal.proflow_project_id && (

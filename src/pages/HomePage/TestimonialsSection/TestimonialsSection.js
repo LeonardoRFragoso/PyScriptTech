@@ -37,15 +37,6 @@ const TestimonialsSection = () => {
           </blockquote>
           <p className={styles.testimonialName}>Carlos Eduardo — Fundador, InnovateBR</p>
         </div>
-        {/* Testimonial 4 */}
-        <div className={styles.testimonialItem}>
-          <img src="/images/Leo-Perfil.png" alt="Leonardo Fragoso - CTO" className={styles.testimonialAvatar} loading="lazy" decoding="async" />
-          <blockquote>
-            "A automação que implementaram reduziu nosso tempo de processamento de 
-            pedidos de 2 dias para 4 horas. ROI de 300% em apenas 6 meses."
-          </blockquote>
-          <p className={styles.testimonialName}>Leonardo Fragoso — CTO, DataSync</p>
-        </div>
       </div>
     </section>
   );

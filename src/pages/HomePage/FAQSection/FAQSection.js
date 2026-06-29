@@ -8,36 +8,24 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: 'Quanto tempo leva para desenvolver um projeto completo?',
-      answer: 'O prazo varia conforme a complexidade. Landing pages e sites institucionais ficam prontos em 7-15 dias. E-commerces e sistemas web customizados levam de 30 a 60 dias. Trabalhamos com metodologia ágil, então você vê progresso semanalmente e pode solicitar ajustes durante o desenvolvimento.'
+      question: 'Quanto tempo leva para desenvolver um projeto?',
+      answer: 'Depende da complexidade. Automações e integrações pontuais ficam prontas em 2–4 semanas. Sistemas corporativos completos (ERP, CRM, portais) levam de 30 a 90 dias. Trabalhamos com metodologia ágil, então você acompanha o progresso semanalmente e pode solicitar ajustes durante o desenvolvimento.'
     },
     {
-      question: 'Qual o investimento necessário para um projeto?',
-      answer: 'Nossos projetos variam de R$ 5.000 (landing pages) até R$ 50.000+ (sistemas enterprise complexos). Oferecemos parcelamento em até 12x e possibilidade de pagamento por etapas. Agende uma consultoria gratuita para receber um orçamento personalizado baseado nas suas necessidades específicas.'
+      question: 'Qual o investimento necessário?',
+      answer: 'Nossos projetos variam de R$ 5.000 (automações pontuais) até R$ 50.000+ (sistemas enterprise complexos). Oferecemos parcelamento em até 12x e pagamento por etapas. Solicite um diagnóstico gratuito para receber um orçamento personalizado baseado na sua necessidade específica.'
     },
     {
       question: 'Vocês oferecem garantia e suporte após a entrega?',
-      answer: 'Sim! Oferecemos 30 dias de garantia total - se não ficar satisfeito, devolvemos 100% do investimento. Além disso, incluímos suporte técnico vitalício sem custo adicional para bugs e correções. Também oferecemos planos de manutenção mensal para evoluções e novos recursos.'
+      answer: 'Sim. Oferecemos 30 dias de garantia total — se não ficar satisfeito, devolvemos 100% do investimento. O suporte técnico para bugs e correções está incluído sem custo adicional. Para evoluções e novos recursos, oferecemos planos de manutenção mensal.'
     },
     {
-      question: 'Como funciona o processo de desenvolvimento?',
-      answer: 'Seguimos 5 etapas: (1) Descoberta - entendemos seu negócio e objetivos; (2) Planejamento - criamos protótipos e definimos funcionalidades; (3) Desenvolvimento - codificamos com entregas semanais; (4) Testes - validamos qualidade e performance; (5) Lançamento - colocamos no ar e treinamos sua equipe. Você acompanha tudo em tempo real.'
-    },
-    {
-      question: 'Posso fazer alterações durante o desenvolvimento?',
-      answer: 'Absolutamente! Nossa metodologia ágil permite ajustes durante todo o processo. Fazemos reuniões semanais de alinhamento onde você pode solicitar mudanças. Alterações dentro do escopo não geram custos extras. Para mudanças significativas fora do escopo, apresentamos um orçamento complementar transparente.'
-    },
-    {
-      question: 'Vocês trabalham com tecnologias específicas ou se adaptam?',
-      answer: 'Somos especialistas em React, Vue.js, Node.js, Python/Django e bancos de dados modernos (PostgreSQL, MongoDB). Mas nos adaptamos às suas necessidades! Se você já tem uma stack tecnológica, podemos trabalhar com ela. Nossa prioridade é entregar a melhor solução para seu caso específico.'
-    },
-    {
-      question: 'O que acontece após o projeto ser entregue?',
-      answer: 'Após a entrega, você recebe todo o código-fonte, documentação completa e treinamento da equipe. Continuamos disponíveis para suporte técnico vitalício. Muitos clientes optam por contratos de manutenção mensal (a partir de R$ 500/mês) para evoluções contínuas, hospedagem gerenciada e monitoramento proativo.'
+      question: 'Posso solicitar alterações durante o desenvolvimento?',
+      answer: 'Sim. Nossa metodologia ágil permite ajustes durante todo o processo. Realizamos reuniões semanais de alinhamento onde você pode solicitar mudanças. Alterações dentro do escopo não geram custos extras. Para mudanças significativas fora do escopo, apresentamos um orçamento complementar e transparente.'
     },
     {
       question: 'Vocês atendem empresas de qual porte?',
-      answer: 'Atendemos desde startups e pequenas empresas até grandes corporações. Nosso portfólio inclui projetos para operações portuárias, e-commerces de médio porte, além de sistemas internos para empresas de diversos setores. Cada projeto recebe atenção personalizada independente do tamanho.'
+      answer: 'Atendemos desde pequenas empresas até médias corporações. Nosso portfólio inclui sistemas para logística, e-commerce, financeiro e operações industriais. Cada projeto recebe atenção personalizada independente do tamanho.'
     }
   ];
 

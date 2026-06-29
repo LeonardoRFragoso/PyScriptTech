@@ -16,9 +16,7 @@ const ProFlowModal = ({ proposal, lead, onClose, onSuccess }) => {
   const [resendLoading, setResendLoading] = useState(false);
   const [resendSuccess, setResendSuccess] = useState(false);
 
-  const payload = useMemo(() => generateProFlowPayload(proposal, lead).payload, [proposal, lead]);
-  const markdown = useMemo(() => generateProFlowPayload(proposal, lead).markdown, [proposal, lead]);
-  const checklist = useMemo(() => generateProFlowPayload(proposal, lead).checklist, [proposal, lead]);
+  const { payload, markdown, checklist } = useMemo(() => generateProFlowPayload(proposal, lead), [proposal, lead]);
   const proposalTitle = proposal.title;
 
   const isIntegrated = proposal.proflow_sync_status === 'success' && proposal.proflow_project_id;

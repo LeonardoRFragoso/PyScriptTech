@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import CounterStat from '../../../components/DesignSystem/CounterStat';
-import { FaProjectDiagram, FaSmile, FaClock, FaCode } from 'react-icons/fa';
+import { FaProjectDiagram, FaSmile, FaClock, FaCalendarAlt } from 'react-icons/fa';
 import './StatsSection.css';
 
 const StatsSection = () => {
@@ -25,10 +25,10 @@ const StatsSection = () => {
       icon: <FaClock />,
     },
     {
-      end: 12,
+      end: 5,
       suffix: '+',
-      label: 'Tecnologias Dominadas',
-      icon: <FaCode />,
+      label: 'Anos no Mercado',
+      icon: <FaCalendarAlt />,
     },
   ];
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-import { FaBrain, FaCogs, FaServer, FaPlug, FaArrowRight } from 'react-icons/fa';
+import { FaBrain, FaCogs, FaServer, FaPlug } from 'react-icons/fa';
 import './SolutionsSection.css';
 
 const solutions = [
@@ -9,35 +8,25 @@ const solutions = [
     icon: <FaBrain />,
     title: 'Inteligência Artificial',
     items: ['Assistentes corporativos', 'RAG e busca semântica', 'Chatbots internos', 'Análise de documentos com IA'],
-    cta: 'Explorar IA',
-    link: '/inteligencia-artificial-empresas'
   },
   {
     icon: <FaCogs />,
     title: 'Automação de Processos',
     items: ['Fluxos operacionais automatizados', 'Integrações entre sistemas', 'Eliminação de tarefas repetitivas', 'RPA sob medida'],
-    cta: 'Automizar Processos',
-    link: '/automacao-empresarial'
   },
   {
     icon: <FaServer />,
     title: 'Sistemas Corporativos',
     items: ['ERP sob medida', 'CRM personalizado', 'Portais internos', 'Dashboards executivos'],
-    cta: 'Criar Sistema',
-    link: '/software-corporativo'
   },
   {
     icon: <FaPlug />,
     title: 'Integrações',
     items: ['APIs REST e GraphQL', 'ERPes (SAP, TOTVS, Omie)', 'CRMs (Salesforce, HubSpot)', 'Sistemas legados'],
-    cta: 'Integrar Sistemas',
-    link: '/integracao-de-sistemas'
   }
 ];
 
 const SolutionsSection = () => {
-  const navigate = useNavigate();
-
   return (
     <section className="solutionsSection" id="solucoes">
       <div className="solutionsContainer">
@@ -76,14 +65,6 @@ const SolutionsSection = () => {
                   </li>
                 ))}
               </ul>
-              <button
-                className="solutionCta"
-                onClick={() => navigate(solution.link)}
-                aria-label={solution.cta}
-              >
-                {solution.cta}
-                <FaArrowRight />
-              </button>
             </motion.div>
           ))}
         </div>

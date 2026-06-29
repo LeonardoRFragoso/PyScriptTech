@@ -4,15 +4,12 @@ import SEO from '../../components/SEO/SEO';
 import IntroSection from './InfoSection/IntroSection';
 import ProblemsSection from './ProblemsSection/ProblemsSection';
 import SolutionsSection from './SolutionsSection/SolutionsSection';
-import ValueProposition from './ValueProposition/ValueProposition';
 import StatsSection from './StatsSection/StatsSection';
-import TrustSection from './TrustSection/TrustSection';
 import ProcessSection from './ProcessSection/ProcessSection';
 import ExecutionSection from './ExecutionSection/ExecutionSection';
 import FeaturedProjects from './FeaturedProjects/FeaturedProjects';
 import TestimonialsSection from './TestimonialsSection/TestimonialsSection';
 import FAQSection from './FAQSection/FAQSection';
-import UrgencySection from './UrgencySection/UrgencySection';
 import ContactSection from './ContactSection/ContactSection';
 import '../../assets/styles/responsive.css';
 
@@ -158,15 +155,12 @@ const HomePage = () => {
         <IntroSection />
         <ProblemsSection />
         <SolutionsSection />
-        <ValueProposition />
         <StatsSection />
-        <TrustSection />
         <ProcessSection />
         <ExecutionSection />
         <FeaturedProjects />
         <TestimonialsSection />
         <FAQSection />
-        <UrgencySection />
         <ContactSection />
       </div>
     </>

@@ -26,13 +26,12 @@ const IntroSection = () => {
           🚀 Automação • Inteligência Artificial • Sistemas Corporativos
         </div>
         <h1>
-          Automação, IA e Sistemas Corporativos
-          <span>para Empresas</span>
+          Sua empresa ainda perde horas
+          <span>com processos manuais?</span>
         </h1>
         <p>
-          Transformamos processos manuais em operações inteligentes através de 
-          <strong>software personalizado, integrações e inteligência artificial</strong>. 
-          Reduza custos, elimine retrabalho e escale seu negócio com menos esforço operacional.
+          Criamos <strong>automações, sistemas e integrações sob medida</strong> que eliminam 
+          retrabalho, conectam seus sistemas e dão visibilidade real sobre o seu negócio.
         </p>
         <div className={styles.ctaWrapper}>
           <button className={styles.ctaButton} onClick={handleCTAClick}>

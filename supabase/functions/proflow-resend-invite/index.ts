@@ -18,20 +18,29 @@ async function callProFlowResendInvite(email: string, projectId: string, token: 
   const apiUrl = Deno.env.get('PROFLOW_API_URL') || 'https://api.proflow.pro';
   const endpoint = '/api/v1/users/pyscript/resend-invite/';
 
-  const response = await fetch(`${apiUrl}${endpoint}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      email,
-      project_id: projectId,
-    }),
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 20000);
 
-  const body = await response.json().catch(() => null);
-  return { response, body };
+  try {
+    const response = await fetch(`${apiUrl}${endpoint}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        email,
+        project_id: projectId,
+      }),
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+    const body = await response.json().catch(() => null);
+    return { response, body };
+  } catch (err) {
+    clearTimeout(timeoutId);
+    throw err;
+  }
 }
 
 async function refreshProFlowToken(refreshToken: string): Promise<{ success: boolean; token?: string; error?: string }> {
@@ -62,15 +71,32 @@ async function resendInvite(email: string, projectId: string): Promise<{ success
   let token = Deno.env.get('PROFLOW_SERVICE_TOKEN') || '';
   const refreshToken = Deno.env.get('PROFLOW_REFRESH_TOKEN') || '';
 
-  let { response, body } = await callProFlowResendInvite(email, projectId, token);
+  let callResult: { response: Response; body: unknown };
+  try {
+    callResult = await callProFlowResendInvite(email, projectId, token);
+  } catch (err) {
+    if ((err as Error).name === 'AbortError') {
+      return { success: false, httpStatus: 0, error: 'ProFlow API timeout (20s)' };
+    }
+    throw err;
+  }
+
+  let { response, body } = callResult;
 
   if (response.status === 401 && refreshToken) {
     const refresh = await refreshProFlowToken(refreshToken);
     if (refresh.success && refresh.token) {
       token = refresh.token;
-      const retry = await callProFlowResendInvite(email, projectId, token);
-      response = retry.response;
-      body = retry.body;
+      try {
+        const retry = await callProFlowResendInvite(email, projectId, token);
+        response = retry.response;
+        body = retry.body;
+      } catch (err) {
+        if ((err as Error).name === 'AbortError') {
+          return { success: false, httpStatus: 0, error: 'ProFlow API timeout (20s)' };
+        }
+        throw err;
+      }
     }
   }
 

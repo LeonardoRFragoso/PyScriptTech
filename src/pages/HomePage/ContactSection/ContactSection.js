@@ -44,10 +44,36 @@ const ContactSection = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
+    // Save lead to CRM first, regardless of email delivery outcome
+    try {
+      const today = new Date().toISOString().split('T')[0];
+      await createLead({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company || 'Não informado',
+        segment: '',
+        employees: '',
+        problem: `Tipo: ${formData.projectType}. Orçamento: ${formData.budget}. ${formData.description}`,
+        systems: '',
+        interests: [formData.projectType || 'Contato'],
+        stage: 'novo',
+        source: 'Formulário Contato Home',
+        estimated_value: 0,
+        priority: 'medium',
+        next_action: 'Responder contato em até 24h',
+        next_action_date: today,
+        notes: formData.description,
+      });
+      logFormSubmit('contact_form_home', true);
+    } catch (err) {
+      console.error('Erro ao salvar lead no CRM:', err);
+    }
+
     emailjs.send('service_mpvslhm', 'template_EmailJS', {
       user_name: formData.name,
       user_email: formData.email,
@@ -57,38 +83,12 @@ const ContactSection = () => {
       user_budget: formData.budget,
       user_description: formData.description,
     }, 'Wok3mV-Bl-3UNJa9I')
-    .then(async (response) => {
+    .then((response) => {
       console.log('Email enviado com sucesso!', response.status, response.text);
       setSuccessMessage('Mensagem enviada com sucesso! Entraremos em contato em até 24 horas.');
       setErrorMessage('');
       setFormData({ name: '', email: '', phone: '', company: '', projectType: '', budget: '', description: '' });
       setIsSubmitting(false);
-
-      // Save lead to CRM and track event
-      try {
-        const today = new Date().toISOString().split('T')[0];
-        await createLead({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company || 'Não informado',
-          segment: '',
-          employees: '',
-          problem: `Tipo: ${formData.projectType}. Orçamento: ${formData.budget}. ${formData.description}`,
-          systems: '',
-          interests: [formData.projectType || 'Contato'],
-          stage: 'novo',
-          source: 'Formulário Contato Home',
-          estimated_value: 0,
-          priority: 'medium',
-          next_action: 'Responder contato em até 24h',
-          next_action_date: today,
-          notes: formData.description,
-        });
-        logFormSubmit('contact_form_home', true);
-      } catch (err) {
-        console.error('Erro ao salvar lead no CRM:', err);
-      }
     }, (err) => {
       console.error('Falha ao enviar email:', err);
       setErrorMessage('Falha ao enviar a mensagem. Tente novamente mais tarde.');

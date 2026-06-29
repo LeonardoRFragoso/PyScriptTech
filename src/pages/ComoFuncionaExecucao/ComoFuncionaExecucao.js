@@ -211,6 +211,14 @@ const ComoFuncionaExecucao = () => {
             <button className="ctaSecondary" onClick={() => navigate('/contact')}>
               Falar com Especialista
             </button>
+            <a
+              className="ctaSecondary"
+              href="https://proflow.pro"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Acessar Portal de Projetos
+            </a>
           </div>
         </div>
       </section>

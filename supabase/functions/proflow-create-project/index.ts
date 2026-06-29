@@ -195,8 +195,8 @@ function sanitizePayloadForLog(payload: ProFlowPayload): Record<string, unknown>
   return {
     external_pyscript_lead_id: payload.external_pyscript_lead_id,
     external_pyscript_proposal_id: payload.external_pyscript_proposal_id,
-    client_email: payload.client.email,
-    client_name: payload.client.name,
+    client_email_domain: payload.client.email?.split('@')[1] || 'unknown',
+    client_name_initial: (payload.client.name?.[0] || '?') + '***',
     project_title: payload.project.title,
     project_budget: payload.project.budget,
     milestones_count: payload.milestones.length,
@@ -208,7 +208,7 @@ function sanitizeResponseForLog(response: ProFlowSuccessResponse): Record<string
     project_id: response.project_id,
     contract_id: response.contract_id,
     milestone_ids_count: response.milestone_ids?.length || 0,
-    client_email: response.client_email,
+    client_email_domain: response.client_email?.split('@')[1] || 'unknown',
     client_status: response.client_status,
     invitation_sent: response.invitation_sent,
     portal_url: response.portal_url,
@@ -219,17 +219,26 @@ async function callProFlowCreate(payload: ProFlowPayload, token: string): Promis
   const apiUrl = Deno.env.get('PROFLOW_API_URL') || 'https://api.proflow.pro';
   const endpoint = Deno.env.get('PROFLOW_PYSCRIPT_ENDPOINT') || '/api/v1/projects/pyscript/';
 
-  const response = await fetch(`${apiUrl}${endpoint}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
-    },
-    body: JSON.stringify(payload),
-  });
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 20000);
 
-  const body = await response.json().catch(() => null);
-  return { response, body };
+  try {
+    const response = await fetch(`${apiUrl}${endpoint}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify(payload),
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+    const body = await response.json().catch(() => null);
+    return { response, body };
+  } catch (err) {
+    clearTimeout(timeoutId);
+    throw err;
+  }
 }
 
 async function refreshProFlowToken(refreshToken: string): Promise<{ success: boolean; token?: string; error?: string }> {
@@ -260,15 +269,32 @@ async function createProFlowProject(payload: ProFlowPayload): Promise<{ success:
   let token = Deno.env.get('PROFLOW_SERVICE_TOKEN') || '';
   const refreshToken = Deno.env.get('PROFLOW_REFRESH_TOKEN') || '';
 
-  let { response, body } = await callProFlowCreate(payload, token);
+  let callResult: { response: Response; body: unknown };
+  try {
+    callResult = await callProFlowCreate(payload, token);
+  } catch (err) {
+    if ((err as Error).name === 'AbortError') {
+      return { success: false, httpStatus: 0, error: 'ProFlow API timeout (20s)' };
+    }
+    throw err;
+  }
+
+  let { response, body } = callResult;
 
   if (response.status === 401 && refreshToken) {
     const refresh = await refreshProFlowToken(refreshToken);
     if (refresh.success && refresh.token) {
       token = refresh.token;
-      const retry = await callProFlowCreate(payload, token);
-      response = retry.response;
-      body = retry.body;
+      try {
+        const retry = await callProFlowCreate(payload, token);
+        response = retry.response;
+        body = retry.body;
+      } catch (err) {
+        if ((err as Error).name === 'AbortError') {
+          return { success: false, httpStatus: 0, error: 'ProFlow API timeout (20s)' };
+        }
+        throw err;
+      }
     }
   }
 

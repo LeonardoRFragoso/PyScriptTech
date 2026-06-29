@@ -11,10 +11,10 @@ const FeaturedProjects = () => {
     {
       id: 1,
       title: 'Oráculo IA',
-      description: 'Consultor estratégico com IA e pipeline OpenRAG completo. Ingestiona documentos, executa pipeline com OpenSearch + Langflow + Docling e responde em linguagem natural com fontes verificáveis.',
-      category: 'AI / Enterprise',
+      description: 'Assistente de IA corporativo que responde perguntas complexas com base em documentos internos da empresa, citando fontes verificáveis. Transforma horas de pesquisa manual em segundos de consulta.',
+      category: 'IA Corporativa',
       technologies: ['FastAPI', 'OpenSearch', 'Langflow', 'Docling', 'Docker'],
-      results: ['Pipeline OpenRAG com indexação semântica', 'Containerização completa', 'Respostas com citação de fontes'],
+      results: ['Pesquisa em documentos internos com IA', 'Respostas com citação de fontes', 'Containerização e deploy simplificado'],
       image: '/images/oraculo/oraculo1.png',
       caseUrl: '/cases/oraculo-ia',
       githubUrl: 'https://github.com/LeonardoRFragoso/Oraculo'
@@ -22,10 +22,10 @@ const FeaturedProjects = () => {
     {
       id: 2,
       title: 'ProFlow',
-      description: 'Plataforma completa para freelancers brasileiros com 4 pilares: IA consultiva (GPT-4), pagamento em custódia anti-calote, reputação com KYC e onboarding gamificado.',
-      category: 'SaaS Platform',
+      description: 'Plataforma SaaS para gestão de projetos e pagamentos entre empresas e fornecedores. Inclui pagamento em custódia, milestones de entrega e comunicação centralizada — desenvolvida e operada pela PyScript.tech.',
+      category: 'SaaS Próprio',
       technologies: ['Django', 'Vue.js 3', 'PostgreSQL', 'OpenAI GPT-4', 'Mercado Pago'],
-      results: ['SaaS próprio em produção', 'Chat em tempo real e carteira virtual com PIX', 'Assinaturas recorrentes e escrow'],
+      results: ['Plataforma SaaS em produção', 'Pagamento em custódia e PIX integrado', 'Assinaturas recorrentes e portal de projetos'],
       image: `${process.env.PUBLIC_URL}/images/proflow/proflow.png`,
       caseUrl: '/cases/proflow',
       liveUrl: 'https://www.proflow.pro/',
@@ -34,10 +34,10 @@ const FeaturedProjects = () => {
     {
       id: 3,
       title: 'LogiFlow CRM',
-      description: 'CRM SaaS completo para transportadoras unificando gestão comercial, operacional e fiscal com 4 apps integrados, rastreamento GPS e emissão de CT-e/MDF-e.',
-      category: 'Enterprise SaaS',
+      description: 'CRM desenvolvido sob medida para transportadoras, unificando operações comercial, fiscal e logística em um só lugar. Eliminou planilhas, reduziu atrasos e automatizou a emissão de documentos fiscais.',
+      category: 'Sistema Corporativo',
       technologies: ['FastAPI', 'Vue.js 3', 'PostgreSQL', 'Redis', 'GPS'],
-      results: ['4 aplicações integradas', 'Integrações com ERPs e WhatsApp', 'Emissão CT-e/MDF-e automatizada'],
+      results: ['Gestão comercial, operacional e fiscal integradas', 'Emissão automática de CT-e e MDF-e', 'Integração com WhatsApp e ERPs do setor'],
       image: '/images/LogiFlow/site-divulgacao/1.png',
       caseUrl: '/cases/logiflow',
       liveUrl: 'https://logi-flow-wuhp.vercel.app',
@@ -56,8 +56,8 @@ const FeaturedProjects = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="featuredBadge">Cases de Sucesso</span>
-          <h2>Projetos que Geraram Resultados</h2>
-          <p>Conheça algumas das soluções que desenvolvemos para nossos clientes</p>
+          <h2>O que já entregamos</h2>
+          <p>Três exemplos reais de sistemas que resolveram problemas reais de negócio</p>
         </motion.div>
 
         <div className="projectsGrid">

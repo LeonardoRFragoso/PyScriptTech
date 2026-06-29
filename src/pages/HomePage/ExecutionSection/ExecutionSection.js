@@ -38,12 +38,13 @@ const ExecutionSection = () => {
     <section className={styles.executionSection}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.tag}>Execução</span>
-          <h2>Execução transparente do início ao fim</h2>
+          <span className={styles.tag}>Acompanhamento</span>
+          <h2>Como você acompanha o seu projeto</h2>
           <p>
-            Da proposta aprovada à entrega final, você acompanha tudo em nosso portal de projetos próprio.
-            Nossa equipe organiza cada etapa, prazo, entrega e comunicação em um ambiente centralizado,
-            para que você tenha visibilidade total do que está sendo construído.
+            Depois de fecharmos o contrato, criamos uma sala dedicada para o seu projeto no{' '}
+            <a href="https://proflow.pro" target="_blank" rel="noopener noreferrer"><strong>ProFlow</strong></a>{' '}
+            — plataforma de gestão de projetos desenvolvida e operada pela PyScript.tech.
+            Sem e-mail perdido. Sem planilha de controle. Tudo em um lugar.
           </p>
         </div>
 
@@ -60,15 +61,19 @@ const ExecutionSection = () => {
           ))}
         </div>
 
-        <div className={styles.note}>
-          <strong>A ProFlow.pro é uma plataforma própria utilizada pela PyScript.Tech</strong> para organizar a execução dos projetos,
-          centralizando comunicação, prazos, arquivos, milestones e entregas com transparência.
-        </div>
 
         <div className={styles.cta}>
           <button className={styles.ctaButton} onClick={() => navigate('/como-funciona-a-execucao')}>
-            Entender como funciona a execução
+            Ver como funciona o acompanhamento
           </button>
+          <a
+            href="https://proflow.pro"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ctaSecondary}
+          >
+            Acessar Portal de Projetos
+          </a>
         </div>
       </div>
     </section>

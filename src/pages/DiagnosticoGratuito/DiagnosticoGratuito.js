@@ -37,6 +37,7 @@ const DiagnosticoGratuito = () => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const updateField = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -81,6 +82,7 @@ const DiagnosticoGratuito = () => {
     e.preventDefault();
     if (!validateStep()) return;
 
+    setIsSubmitting(true);
     try {
       const today = new Date().toISOString().split('T')[0];
       const newLead = {
@@ -117,6 +119,8 @@ const DiagnosticoGratuito = () => {
     } catch (error) {
       console.error('Error saving lead:', error);
       setErrors({ submit: 'Erro ao enviar diagnóstico. Tente novamente ou fale pelo WhatsApp.' });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -328,12 +332,17 @@ const DiagnosticoGratuito = () => {
                 <FiArrowRight />
               </button>
             ) : (
-              <button type="submit" className="navButton primary">
-                Solicitar Diagnóstico Gratuito
+              <button type="submit" className="navButton primary" disabled={isSubmitting}>
+                {isSubmitting ? 'Enviando...' : 'Solicitar Diagnóstico Gratuito'}
                 <FiArrowRight />
               </button>
             )}
           </div>
+          {errors.submit && (
+            <div className="fieldError" style={{ textAlign: 'center', marginTop: '1rem' }}>
+              {errors.submit}
+            </div>
+          )}
         </form>
 
         <div className="afterDiagnosisSection">
@@ -362,7 +371,7 @@ const DiagnosticoGratuito = () => {
             </div>
           </div>
           <p className="afterDiagnosisNote">
-            A <strong>ProFlow.pro</strong> é uma plataforma própria utilizada pela PyScript.Tech para organizar a execução dos projetos,
+            A <strong><a href="https://proflow.pro" target="_blank" rel="noopener noreferrer">ProFlow.pro</a></strong> é uma plataforma própria utilizada pela PyScript.Tech para organizar a execução dos projetos,
             centralizando comunicação, prazos, arquivos, milestones e entregas com transparência.
           </p>
         </div>
