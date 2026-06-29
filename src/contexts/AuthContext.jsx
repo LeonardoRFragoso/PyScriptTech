@@ -170,6 +170,26 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const loginWithGoogle = async () => {
+    if (!isSupabaseConfigured()) {
+      showError('Supabase não configurado');
+      return { success: false };
+    }
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/dashboard`,
+        },
+      });
+      if (error) throw error;
+      return { success: true };
+    } catch (error) {
+      showError(error.message || 'Erro ao entrar com Google');
+      return { success: false, error: error.message };
+    }
+  };
+
   const forgotPassword = async (email) => {
     if (!isSupabaseConfigured()) {
       showSuccess('Email de recuperação enviado!');
@@ -219,6 +239,7 @@ export const AuthProvider = ({ children }) => {
     loading,
     isAuthenticated: !!user,
     login,
+    loginWithGoogle,
     register,
     logout,
     updateUser,
