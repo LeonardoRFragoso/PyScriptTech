@@ -138,7 +138,7 @@ const LeadsList = () => {
           <span className={styles.statLabel}>Total de Leads</span>
         </div>
         <div className={styles.statCard}>
-          <span className={styles.statValue}>{leads.filter(l => l.stage === 'diagnostico' || l.stage === 'proposta' || l.stage === 'negociacao').length}</span>
+          <span className={styles.statValue}>{leads.filter(l => l.stage !== 'fechado' && l.stage !== 'perdido').length}</span>
           <span className={styles.statLabel}>Em Pipeline</span>
         </div>
         <div className={styles.statCard}>
@@ -294,7 +294,7 @@ const LeadsList = () => {
                           <div className={styles.actions}>
                             <button
                               className={styles.actionButton}
-                              disabled={currentIndex === 0}
+                              disabled={currentIndex <= 0 || lead.stage === 'perdido'}
                               onClick={() => handleMoveLead(lead.id, 'prev')}
                               title="Voltar etapa"
                             >
@@ -302,7 +302,7 @@ const LeadsList = () => {
                             </button>
                             <button
                               className={styles.actionButton}
-                              disabled={currentIndex === PIPELINE_STAGES.length - 1}
+                              disabled={lead.stage === 'fechado' || lead.stage === 'perdido' || currentIndex >= PIPELINE_STAGES.length - 1}
                               onClick={() => handleMoveLead(lead.id, 'next')}
                               title="Avançar etapa"
                             >
