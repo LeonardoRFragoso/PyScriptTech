@@ -322,6 +322,122 @@
   text-align: right;
 }
 
+.overdue {
+  color: #ff6b6b !important;
+}
+
+.statusRejected {
+  background: rgba(255, 107, 107, 0.15);
+  color: #ff6b6b;
+}
+
+.statSub {
+  font-size: 0.72rem;
+  color: #666;
+  margin-top: 0.15rem;
+}
+
+.proposalValue {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #10b981;
+  white-space: nowrap;
+}
+
+.emptyMessage {
+  color: #555;
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.loadingState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 4rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.errorState svg {
+  color: #ff6b6b;
+  font-size: 2rem;
+  width: 32px;
+  height: 32px;
+}
+
+.retryButton {
+  padding: 0.5rem 1.25rem;
+  background: rgba(0, 212, 255, 0.15);
+  color: #00d4ff;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.retryButton:hover {
+  background: rgba(0, 212, 255, 0.25);
+}
+
+.refreshButton {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #666;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.refreshButton:hover {
+  color: #00d4ff;
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+  width: 28px;
+  height: 28px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.summaryRow span {
+  color: #888;
+}
+
+.summaryRow strong {
+  color: white;
+  font-weight: 600;
+}
+
 .quickActions {
   margin-top: 2rem;
 }
