@@ -234,6 +234,24 @@ a.contactItem:hover {
   50% { transform: scale(1.15); }
 }
 
+.footerBottomRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.internalLink {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.18);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+.internalLink:hover {
+  color: rgba(255, 255, 255, 0.45);
+}
+
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 1024px) {
   .footerGrid {
