@@ -96,7 +96,7 @@ const PublicProposalPage = () => {
     );
   }
 
-  const { client, pyscript, items, total_value, valid_until, title, scope, can_accept } = proposal;
+  const { client, pyscript, items, total_value, valid_until, payment_terms, title, scope, can_accept, accepted_by_name, accepted_at } = proposal;
 
   return (
     <div className={styles.container}>
@@ -127,7 +127,10 @@ const PublicProposalPage = () => {
               items.map((item, index) => (
                 <div key={index} className={styles.itemRow}>
                   <span>{item.description || item.name || `Item ${index + 1}`}</span>
-                  <strong>{formatCurrency(item.value)}</strong>
+                  <div className={styles.itemMeta}>
+                    {item.due_date && <small>{formatDate(item.due_date)}</small>}
+                    <strong>{formatCurrency(item.value)}</strong>
+                  </div>
                 </div>
               ))
             ) : (
@@ -139,6 +142,13 @@ const PublicProposalPage = () => {
             </div>
           </div>
         </div>
+
+        {payment_terms && (
+          <div className={styles.section}>
+            <h2><FiFileText /> Condições de pagamento</h2>
+            <p style={{ whiteSpace: 'pre-line' }}>{payment_terms}</p>
+          </div>
+        )}
 
         <div className={styles.section}>
           <h2><FiCalendar /> Prazo e validade</h2>
@@ -164,7 +174,8 @@ const PublicProposalPage = () => {
         {accepted ? (
           <div className={styles.successBox}>
             <FiCheckCircle />
-            <h3>Proposta aceita com sucesso</h3>
+            <h3>Proposta aceita{accepted_by_name ? ` por ${accepted_by_name}` : ''}</h3>
+            {accepted_at && <p>Aceite registrado em {formatDate(accepted_at)}.</p>}
             <p>A equipe PyScriptTech entrará em contato em breve para iniciar o onboarding.</p>
           </div>
         ) : !can_accept ? (

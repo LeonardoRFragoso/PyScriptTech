@@ -20,9 +20,12 @@ const emptyProposal = {
   total_value: 0,
   status: 'draft',
   valid_until: '',
+  meeting_date: '',
+  payment_terms: '',
+  manager_notes: '',
 };
 
-const emptyItem = { description: '', value: '' };
+const emptyItem = { description: '', value: '', due_date: '' };
 
 const ProposalForm = () => {
   const { id } = useParams();
@@ -73,6 +76,13 @@ const ProposalForm = () => {
       total_value: recalculateTotal(newItems),
     }));
     setItem(emptyItem);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      addItem();
+    }
   };
 
   const removeItem = (index) => {
@@ -177,6 +187,14 @@ const ProposalForm = () => {
                 onChange={(e) => setProposal({ ...proposal, valid_until: e.target.value })}
               />
             </div>
+            <div className={styles.field}>
+              <label>Data da reunião</label>
+              <input
+                type="date"
+                value={proposal.meeting_date || ''}
+                onChange={(e) => setProposal({ ...proposal, meeting_date: e.target.value })}
+              />
+            </div>
           </div>
 
           <div className={styles.field}>
@@ -189,19 +207,31 @@ const ProposalForm = () => {
             />
             {errors.scope && <span className={styles.error}>{errors.scope}</span>}
           </div>
+
+          <div className={styles.field}>
+            <label>Condições de pagamento</label>
+            <textarea
+              value={proposal.payment_terms || ''}
+              onChange={(e) => setProposal({ ...proposal, payment_terms: e.target.value })}
+              placeholder="Ex: 50% na assinatura, 50% na entrega final. Parcelamento em até 6x no cartão."
+              rows={2}
+            />
+          </div>
         </div>
 
         <div className={styles.section}>
-          <h2>Itens da Proposta</h2>
+          <h2>Milestones / Entregas</h2>
+          <p className={styles.sectionHint}>Cada item vira um milestone no ProFlow com seu valor e prazo individuais.</p>
           <div className={styles.itemForm}>
-            <div className={styles.grid}>
+            <div className={styles.itemGrid}>
               <div className={styles.field}>
-                <label>Descrição do item</label>
+                <label>Descrição do entregável</label>
                 <input
                   type="text"
                   value={item.description}
                   onChange={(e) => setItem({ ...item, description: e.target.value })}
-                  placeholder="Ex: Desenvolvimento de chatbot corporativo"
+                  onKeyDown={handleKeyDown}
+                  placeholder="Ex: Desenvolvimento do módulo de automação"
                 />
               </div>
               <div className={styles.field}>
@@ -210,12 +240,21 @@ const ProposalForm = () => {
                   type="number"
                   value={item.value}
                   onChange={(e) => setItem({ ...item, value: e.target.value })}
+                  onKeyDown={handleKeyDown}
                   placeholder="0,00"
+                />
+              </div>
+              <div className={styles.field}>
+                <label>Prazo de entrega</label>
+                <input
+                  type="date"
+                  value={item.due_date || ''}
+                  onChange={(e) => setItem({ ...item, due_date: e.target.value })}
                 />
               </div>
             </div>
             <button type="button" className={styles.addItemButton} onClick={addItem}>
-              <FiPlus /> Adicionar Item
+              <FiPlus /> Adicionar Entregável
             </button>
           </div>
 
@@ -224,7 +263,12 @@ const ProposalForm = () => {
           <div className={styles.itemsList}>
             {proposal.items.map((it, index) => (
               <div key={index} className={styles.itemRow}>
-                <span>{it.description}</span>
+                <span className={styles.itemDesc}>{it.description}</span>
+                {it.due_date && (
+                  <span className={styles.itemDate}>
+                    {new Date(it.due_date).toLocaleDateString('pt-BR', { timeZone: 'UTC' })}
+                  </span>
+                )}
                 <strong>{Number(it.value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
                 <button type="button" className={styles.removeItemButton} onClick={() => removeItem(index)}>
                   <FiTrash2 />
@@ -235,6 +279,19 @@ const ProposalForm = () => {
 
           <div className={styles.totalValue}>
             Total: {proposal.total_value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+          </div>
+        </div>
+
+        <div className={styles.section}>
+          <h2>Notas internas</h2>
+          <p className={styles.sectionHint}>Visível apenas para o time PyScript — enviado ao ProFlow como <code>manager_notes</code>.</p>
+          <div className={styles.field}>
+            <textarea
+              value={proposal.manager_notes || ''}
+              onChange={(e) => setProposal({ ...proposal, manager_notes: e.target.value })}
+              placeholder="Ex: Cliente quer integração com SAP na fase 2. Prioridade: módulo de relatórios."
+              rows={3}
+            />
           </div>
         </div>
 

@@ -66,6 +66,7 @@ Deno.serve(async (req: Request) => {
         items,
         total_value,
         valid_until,
+        payment_terms,
         status,
         acceptance_status,
         public_access_enabled,
@@ -93,8 +94,8 @@ Deno.serve(async (req: Request) => {
       });
     }
 
-    if (proposal.status === 'accepted' || proposal.status === 'rejected') {
-      return new Response(JSON.stringify({ error: 'Esta proposta não está mais disponível para aceite' }), {
+    if (proposal.status === 'rejected' || proposal.status === 'expired') {
+      return new Response(JSON.stringify({ error: 'Esta proposta foi recusada ou expirou' }), {
         status: 400,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
@@ -131,6 +132,7 @@ Deno.serve(async (req: Request) => {
       items: proposal.items,
       total_value: proposal.total_value,
       valid_until: proposal.valid_until,
+      payment_terms: proposal.payment_terms || null,
       status: proposal.status,
       acceptance_status: proposal.acceptance_status,
       accepted_at: proposal.accepted_at,

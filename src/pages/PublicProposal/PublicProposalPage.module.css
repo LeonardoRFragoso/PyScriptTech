@@ -117,6 +117,18 @@
   color: #f8fafc;
 }
 
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.itemMeta small {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
 .totalRow {
   display: flex;
   justify-content: space-between;

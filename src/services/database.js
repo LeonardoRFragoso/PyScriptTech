@@ -374,7 +374,7 @@ export const generateProFlowPayload = (proposal, lead) => {
     description: item.description || '',
     amount: Number(item.value) || 0,
     order: index + 1,
-    due_date: deadline,
+    due_date: item.due_date || deadline,
   }));
 
   // Ajustar último milestone para garantir soma exata
@@ -409,7 +409,9 @@ export const generateProFlowPayload = (proposal, lead) => {
     },
     milestones,
     assigned_freelancer_id: null,
-    manager_notes: `Projeto criado pela PyScript.Tech. Lead: ${lead.id}, Proposta: ${proposal.id}`,
+    manager_notes: proposal.manager_notes
+      ? `${proposal.manager_notes}\n\n[PyScript] Lead: ${lead.id} | Proposta: ${proposal.id}`
+      : `Projeto criado pela PyScript.Tech. Lead: ${lead.id}, Proposta: ${proposal.id}`,
   };
 
   const markdown = `# Criação de Projeto na ProFlow
@@ -433,8 +435,9 @@ export const generateProFlowPayload = (proposal, lead) => {
 ## Escopo
 ${payload.project.description}
 
+${proposal.payment_terms ? `## Condições de Pagamento\n${proposal.payment_terms}\n` : ''}
 ## Milestones
-${milestones.map((m, i) => `${i + 1}. **${m.title}** — ${m.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`).join('\n')}
+${milestones.map((m, i) => `${i + 1}. **${m.title}** — ${m.amount.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}${m.due_date ? ` · prazo: ${new Date(m.due_date).toLocaleDateString('pt-BR')}` : ''}`).join('\n')}
 
 ## Checklist de criação manual
 - [ ] Criar usuário cliente na ProFlow (${payload.client.email})

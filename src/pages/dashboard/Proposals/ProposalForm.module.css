@@ -99,11 +99,33 @@
   font-size: 0.85rem;
 }
 
+.sectionHint {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 16px;
+  margin-top: -12px;
+}
+
+.sectionHint code {
+  background: rgba(0, 212, 255, 0.1);
+  color: #00d4ff;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+}
+
 .itemForm {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 20px;
+}
+
+.itemGrid {
+  display: grid;
+  grid-template-columns: 1fr 140px 160px;
+  gap: 12px;
+  align-items: end;
 }
 
 .addItemButton {
@@ -129,12 +151,23 @@
 
 .itemRow {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   padding: 12px 16px;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 8px;
+}
+
+.itemDesc {
+  flex: 1;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+}
+
+.itemDate {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
 }
 
 .itemRow strong {
@@ -210,5 +243,6 @@
 
 @media (max-width: 768px) {
   .grid { grid-template-columns: 1fr; }
+  .itemGrid { grid-template-columns: 1fr; }
   .actions { flex-direction: column; }
 }
