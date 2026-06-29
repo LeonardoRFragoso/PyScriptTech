@@ -392,3 +392,52 @@
     display: none;
   }
 }
+
+/* ── Light theme overrides ── */
+:global([data-theme="light"]) .headerInfo h1 { color: #1a1a2e; }
+:global([data-theme="light"]) .headerInfo p { color: #777; }
+
+:global([data-theme="light"]) .exportButton {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.1);
+  color: #555;
+}
+:global([data-theme="light"]) .exportButton:hover { background: rgba(0,0,0,0.08); color: #1a1a2e; }
+
+:global([data-theme="light"]) .toolbar { border-color: rgba(0,0,0,0.06); }
+:global([data-theme="light"]) .filterButton {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.1);
+  color: #555;
+}
+:global([data-theme="light"]) .filterButton:hover { background: rgba(0,0,0,0.08); color: #1a1a2e; }
+:global([data-theme="light"]) .filterButton.active {
+  background: rgba(0,168,204,0.1);
+  border-color: rgba(0,168,204,0.3);
+  color: #0099bb;
+}
+
+:global([data-theme="light"]) .tableWrapper {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+:global([data-theme="light"]) .table th {
+  background: rgba(0,0,0,0.03);
+  color: #888;
+  border-bottom-color: rgba(0,0,0,0.08);
+}
+:global([data-theme="light"]) .table td { color: #333; border-bottom-color: rgba(0,0,0,0.05); }
+:global([data-theme="light"]) .table tbody tr:hover { background: rgba(0,168,204,0.04); }
+
+:global([data-theme="light"]) .clientName { color: #1a1a2e; }
+:global([data-theme="light"]) .company { color: #888; }
+:global([data-theme="light"]) .contactLink { color: #0099bb; }
+:global([data-theme="light"]) .date { color: #999; }
+
+:global([data-theme="light"]) .actionButton {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.1);
+  color: #555;
+}
+:global([data-theme="light"]) .actionButton:hover { background: rgba(0,0,0,0.08); color: #1a1a2e; }

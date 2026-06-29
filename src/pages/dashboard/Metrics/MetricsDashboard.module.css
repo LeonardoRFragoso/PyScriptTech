@@ -162,3 +162,37 @@
   .statsGrid { grid-template-columns: 1fr; }
   .grid { grid-template-columns: 1fr; }
 }
+
+/* ── Light theme overrides ── */
+:global([data-theme="light"]) .header h1 { color: #1a1a2e; }
+:global([data-theme="light"]) .header p { color: #777; }
+
+:global([data-theme="light"]) .statCard {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+:global([data-theme="light"]) .statValue { color: #1a1a2e; }
+:global([data-theme="light"]) .statLabel { color: #999; }
+
+:global([data-theme="light"]) .section {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+:global([data-theme="light"]) .section h2 { color: #1a1a2e; }
+
+:global([data-theme="light"]) .listItem {
+  border-bottom-color: rgba(0,0,0,0.05);
+}
+:global([data-theme="light"]) .listItem:hover { background: rgba(0,0,0,0.02); }
+:global([data-theme="light"]) .stageName { color: #555; }
+:global([data-theme="light"]) .stageCount { color: #1a1a2e; }
+
+:global([data-theme="light"]) .actionItem { border-bottom-color: rgba(0,0,0,0.05); }
+:global([data-theme="light"]) .actionItem:hover { background: rgba(0,0,0,0.02); }
+:global([data-theme="light"]) .actionInfo strong { color: #1a1a2e; }
+:global([data-theme="light"]) .actionInfo span { color: #888; }
+:global([data-theme="light"]) .actionDetail span { color: #777; }
+:global([data-theme="light"]) .actionDate { color: #aaa; }
+:global([data-theme="light"]) .empty { color: #bbb; }

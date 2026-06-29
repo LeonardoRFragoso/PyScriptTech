@@ -157,3 +157,15 @@
     justify-content: center;
   }
 }
+
+/* ── Light theme overrides ── */
+:global([data-theme="light"]) .header h1 { color: #1a1a2e; }
+:global([data-theme="light"]) .backButton { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.1); color: #555; }
+:global([data-theme="light"]) .backButton:hover { background: rgba(0,0,0,0.08); color: #1a1a2e; }
+:global([data-theme="light"]) .form { background: #ffffff; border-color: rgba(0,0,0,0.07); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+:global([data-theme="light"]) .section { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
+:global([data-theme="light"]) .section h2 { color: #1a1a2e; }
+:global([data-theme="light"]) .field label { color: #666; }
+:global([data-theme="light"]) .field input, :global([data-theme="light"]) .field select, :global([data-theme="light"]) .field textarea { background: #ffffff; border-color: rgba(0,0,0,0.12); color: #1a1a2e; }
+:global([data-theme="light"]) .field input:focus, :global([data-theme="light"]) .field select:focus, :global([data-theme="light"]) .field textarea:focus { border-color: rgba(0,168,204,0.5); }
+:global([data-theme="light"]) .cancelButton { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.1); color: #555; }

@@ -238,3 +238,51 @@
   .statsGrid { grid-template-columns: 1fr; }
   .filters { flex-direction: column; }
 }
+
+/* ── Light theme overrides ── */
+:global([data-theme="light"]) .header h1 { color: #1a1a2e; }
+:global([data-theme="light"]) .header p { color: #777; }
+
+:global([data-theme="light"]) .statCard {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+:global([data-theme="light"]) .statValue { color: #1a1a2e; }
+:global([data-theme="light"]) .statLabel { color: #999; }
+
+:global([data-theme="light"]) .filters { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
+:global([data-theme="light"]) .searchBox input,
+:global([data-theme="light"]) .filterGroup select {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.1);
+  color: #1a1a2e;
+}
+:global([data-theme="light"]) .searchBox input::placeholder { color: #bbb; }
+
+:global([data-theme="light"]) .tableContainer {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+:global([data-theme="light"]) .table th {
+  background: rgba(0,0,0,0.03);
+  color: #888;
+  border-bottom-color: rgba(0,0,0,0.08);
+}
+:global([data-theme="light"]) .table td { color: #333; border-bottom-color: rgba(0,0,0,0.05); }
+:global([data-theme="light"]) .table tr:hover { background: rgba(0,168,204,0.04); }
+:global([data-theme="light"]) .proposalInfo strong,
+:global([data-theme="light"]) .leadInfo strong { color: #1a1a2e; }
+:global([data-theme="light"]) .proposalInfo span,
+:global([data-theme="light"]) .leadInfo span { color: #888; }
+
+:global([data-theme="light"]) .actionButton {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.1);
+  color: #555;
+}
+:global([data-theme="light"]) .actionButton:hover { background: rgba(0,0,0,0.08); color: #1a1a2e; }
+:global([data-theme="light"]) .overdue { color: #ef4444; }
+:global([data-theme="light"]) .loadingState,
+:global([data-theme="light"]) .emptyState { color: #bbb; }
