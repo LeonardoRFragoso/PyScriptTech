@@ -74,6 +74,7 @@ const ProposalForm = lazy(() => import('./pages/dashboard/Proposals/ProposalForm
 const ProspectsList = lazy(() => import('./pages/dashboard/Prospects/ProspectsList'));
 const ProspectForm = lazy(() => import('./pages/dashboard/Prospects/ProspectForm'));
 const MetricsDashboard = lazy(() => import('./pages/dashboard/Metrics/MetricsDashboard'));
+const Settings = lazy(() => import('./pages/dashboard/Settings/Settings'));
 
 // Analytics tracker component
 const AnalyticsTracker = () => {
@@ -181,11 +182,7 @@ const App = () => {
                   <Route path="prospects/new" element={<ProspectForm />} />
                   <Route path="prospects/edit/:id" element={<ProspectForm />} />
                   <Route path="metrics" element={<MetricsDashboard />} />
-                  <Route path="projects" element={<DashboardHome />} />
-                  <Route path="tasks" element={<DashboardHome />} />
-                  <Route path="finance" element={<DashboardHome />} />
-                  <Route path="reports" element={<DashboardHome />} />
-                  <Route path="settings" element={<DashboardHome />} />
+                  <Route path="settings" element={<Settings />} />
                 </Route>
               </Routes>
             </Suspense>

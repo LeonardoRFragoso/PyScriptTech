@@ -5,11 +5,8 @@ import {
   FiHome,
   FiUsers,
   FiUserPlus,
-  FiBriefcase,
   FiFileText,
   FiTarget,
-  FiCheckSquare,
-  FiDollarSign,
   FiBarChart2,
   FiSettings,
   FiLogOut,
@@ -27,12 +24,8 @@ const Sidebar = ({ isOpen, isCollapsed, onClose, onToggleCollapse }) => {
     { icon: FiUserPlus, label: 'Leads', path: '/dashboard/leads' },
     { icon: FiFileText, label: 'Propostas', path: '/dashboard/proposals' },
     { icon: FiTarget, label: 'Prospecção', path: '/dashboard/prospects' },
-    { icon: FiBarChart2, label: 'Métricas', path: '/dashboard/metrics' },
     { icon: FiUsers, label: 'Clientes', path: '/dashboard/clients' },
-    { icon: FiBriefcase, label: 'Projetos', path: '/dashboard/projects' },
-    { icon: FiCheckSquare, label: 'Tarefas', path: '/dashboard/tasks' },
-    { icon: FiDollarSign, label: 'Financeiro', path: '/dashboard/finance' },
-    { icon: FiBarChart2, label: 'Relatórios', path: '/dashboard/reports' },
+    { icon: FiBarChart2, label: 'Métricas', path: '/dashboard/metrics' },
   ];
 
   const bottomMenuItems = [
