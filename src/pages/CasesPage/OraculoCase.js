@@ -4,7 +4,7 @@ const oraculoData = {
   title: 'Oráculo IA',
   subtitle: 'Consultor Estratégico com Inteligência Artificial e RAG',
   description: 'Sistema de IA corporativa que ingere documentos, executa pipeline OpenRAG e responde em linguagem natural com fontes verificáveis. Ideal para empresas que precisam consultar grandes volumes de documentos e dados de forma inteligente.',
-  image: '/images/oraculo/oraculo1.png',
+  image: '/images/oraculo/1.png',
   url: 'https://pyscript.tech/cases/oraculo-ia',
   liveUrl: null,
   githubUrl: 'https://github.com/LeonardoRFragoso/Oraculo',

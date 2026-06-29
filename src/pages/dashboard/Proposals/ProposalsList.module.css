@@ -251,14 +251,24 @@
 :global([data-theme="light"]) .statValue { color: #1a1a2e; }
 :global([data-theme="light"]) .statLabel { color: #999; }
 
-:global([data-theme="light"]) .filters { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
-:global([data-theme="light"]) .searchBox input,
-:global([data-theme="light"]) .filterGroup select {
+:global([data-theme="light"]) .searchBox {
   background: #ffffff;
   border-color: rgba(0,0,0,0.1);
+  color: #888;
+}
+:global([data-theme="light"]) .filterGroup {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.1);
+  color: #888;
+}
+:global([data-theme="light"]) .searchBox input,
+:global([data-theme="light"]) .filterGroup select {
+  background: transparent;
+  border-color: transparent;
   color: #1a1a2e;
 }
 :global([data-theme="light"]) .searchBox input::placeholder { color: #bbb; }
+:global([data-theme="light"]) .filterGroup option { background: #ffffff; color: #1a1a2e; }
 
 :global([data-theme="light"]) .tableContainer {
   background: #ffffff;

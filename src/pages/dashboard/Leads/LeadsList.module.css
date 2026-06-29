@@ -178,11 +178,12 @@
   background: rgba(26, 26, 36, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .table {
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
   border-collapse: collapse;
 }
 
@@ -317,11 +318,6 @@
   .pipeline {
     grid-template-columns: repeat(4, 1fr);
   }
-
-  .table {
-    display: block;
-    overflow-x: auto;
-  }
 }
 
 @media (max-width: 768px) {
@@ -408,19 +404,33 @@
 :global([data-theme="light"]) .statValue { color: #1a1a2e; }
 :global([data-theme="light"]) .statLabel { color: #999; }
 
-:global([data-theme="light"]) .pipeline { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
 :global([data-theme="light"]) .pipelineStage { background: #ffffff; border-color: rgba(0,0,0,0.07); }
-:global([data-theme="light"]) .stageName { color: #555; }
-:global([data-theme="light"]) .stageCount { color: #1a1a2e; }
+:global([data-theme="light"]) .stageHeader {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+:global([data-theme="light"]) .stageName { color: #333; }
+:global([data-theme="light"]) .stageCount { color: #ffffff; }
 
-:global([data-theme="light"]) .filters { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
-:global([data-theme="light"]) .searchBox input,
-:global([data-theme="light"]) .filterGroup select {
+:global([data-theme="light"]) .searchBox {
   background: #ffffff;
   border-color: rgba(0,0,0,0.1);
+  color: #888;
+}
+:global([data-theme="light"]) .filterGroup {
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.1);
+  color: #888;
+}
+:global([data-theme="light"]) .searchBox input,
+:global([data-theme="light"]) .filterGroup select {
+  background: transparent;
+  border-color: transparent;
   color: #1a1a2e;
 }
 :global([data-theme="light"]) .searchBox input::placeholder { color: #bbb; }
+:global([data-theme="light"]) .filterGroup option { background: #ffffff; color: #1a1a2e; }
 
 :global([data-theme="light"]) .tableContainer {
   background: #ffffff;

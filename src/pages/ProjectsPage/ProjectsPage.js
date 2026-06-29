@@ -31,8 +31,8 @@ const projectsData = [
     category: 'enterprise',
     technologies: ['Python', 'FastAPI', 'OpenSearch', 'Langflow', 'Docling', 'Docker', 'React', 'OpenAI'],
     results: ['Pipeline OpenRAG com indexação semântica', 'Containerização completa com Docker', 'Respostas com citação de fontes'],
-    image: '/images/oraculo/oraculo1.png',
-    images: ['/images/oraculo/oraculo1.png'],
+    image: '/images/oraculo/1.png',
+    images: ['/images/oraculo/1.png'],
     featured: true,
     caseUrl: '/cases/oraculo-ia',
     githubUrl: 'https://github.com/LeonardoRFragoso/Oraculo'

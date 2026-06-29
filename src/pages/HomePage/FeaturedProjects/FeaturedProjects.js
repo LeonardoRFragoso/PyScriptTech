@@ -15,7 +15,7 @@ const FeaturedProjects = () => {
       category: 'IA Corporativa',
       technologies: ['FastAPI', 'OpenSearch', 'Langflow', 'Docling', 'Docker'],
       results: ['Pesquisa em documentos internos com IA', 'Respostas com citação de fontes', 'Containerização e deploy simplificado'],
-      image: '/images/oraculo/oraculo1.png',
+      image: '/images/oraculo/1.png',
       caseUrl: '/cases/oraculo-ia',
       githubUrl: 'https://github.com/LeonardoRFragoso/Oraculo'
     },
