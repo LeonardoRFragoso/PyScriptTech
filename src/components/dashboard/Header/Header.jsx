@@ -6,7 +6,6 @@ import {
   FiBell, 
   FiSearch, 
   FiSettings,
-  FiUser,
   FiLogOut,
   FiMoon,
   FiSun
@@ -23,13 +22,6 @@ const Header = ({ onToggleSidebar, sidebarOpen }) => {
   const notificationsRef = useRef(null);
   const userMenuRef = useRef(null);
 
-  const notifications = [
-    { id: 1, title: 'Novo cliente cadastrado', time: '5 min atrás', read: false },
-    { id: 2, title: 'Projeto atualizado', time: '1 hora atrás', read: false },
-    { id: 3, title: 'Tarefa concluída', time: '2 horas atrás', read: true },
-  ];
-
-  const unreadCount = notifications.filter(n => !n.read).length;
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -89,38 +81,16 @@ const Header = ({ onToggleSidebar, sidebarOpen }) => {
             aria-label="Notificações"
           >
             <FiBell />
-            {unreadCount > 0 && (
-              <span className={styles.badge}>{unreadCount}</span>
-            )}
           </button>
 
           {showNotifications && (
             <div className={styles.dropdown}>
               <div className={styles.dropdownHeader}>
                 <h3>Notificações</h3>
-                <button className={styles.markAllRead}>Marcar como lidas</button>
               </div>
               <div className={styles.dropdownContent}>
-                {notifications.length > 0 ? (
-                  notifications.map(notification => (
-                    <div 
-                      key={notification.id} 
-                      className={`${styles.notificationItem} ${!notification.read ? styles.unread : ''}`}
-                    >
-                      <div className={styles.notificationDot}></div>
-                      <div className={styles.notificationContent}>
-                        <p>{notification.title}</p>
-                        <span>{notification.time}</span>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <p className={styles.emptyState}>Sem notificações</p>
-                )}
+                <p className={styles.emptyState}>Sem notificações no momento.</p>
               </div>
-              <Link to="/dashboard/notifications" className={styles.dropdownFooter}>
-                Ver todas
-              </Link>
             </div>
           )}
         </div>
@@ -142,10 +112,6 @@ const Header = ({ onToggleSidebar, sidebarOpen }) => {
           {showUserMenu && (
             <div className={styles.dropdown}>
               <div className={styles.dropdownContent}>
-                <Link to="/dashboard/profile" className={styles.menuItem}>
-                  <FiUser />
-                  <span>Meu Perfil</span>
-                </Link>
                 <Link to="/dashboard/settings" className={styles.menuItem}>
                   <FiSettings />
                   <span>Configurações</span>
