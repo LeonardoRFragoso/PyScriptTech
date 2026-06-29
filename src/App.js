@@ -1,6 +1,6 @@
 // src/App.js
 import React, { lazy, Suspense, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Toaster } from 'react-hot-toast';
 
@@ -183,6 +183,7 @@ const App = () => {
                   <Route path="prospects/edit/:id" element={<ProspectForm />} />
                   <Route path="metrics" element={<MetricsDashboard />} />
                   <Route path="settings" element={<Settings />} />
+                  <Route path="*" element={<Navigate to="/dashboard" replace />} />
                 </Route>
               </Routes>
             </Suspense>
